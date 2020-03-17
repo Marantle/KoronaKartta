@@ -14,7 +14,7 @@ const Layout: React.FunctionComponent<Props> = ({
   title = "Covid-19 eli Koronaviruksen leviäminen suomessa",
   description = "Koronakartalla voit selata historiallista koronan leviämistä suomessa ja katsoa sairaanhoitopiirikohtaisesti kokonaistartuntojen, kipeiden sekä parantuneiden määriä.",
   imageUrl = "/banner.png",
-  url = "http://koronakartta.info/"
+  url = "//koronakartta.info/"
 }) => (
   <div id="buut">
     <Head>
