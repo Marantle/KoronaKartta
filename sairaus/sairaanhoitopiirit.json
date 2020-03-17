@@ -1,0 +1,2354 @@
+[
+  {
+    "kunta-koodi": 20,
+    "kunta": "Akaa",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 1
+  },
+  {
+    "kunta-koodi": 5,
+    "kunta": "Alajärvi",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 2
+  },
+  {
+    "kunta-koodi": 9,
+    "kunta": "Alavieska",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 3
+  },
+  {
+    "kunta-koodi": 10,
+    "kunta": "Alavus",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 4
+  },
+  {
+    "kunta-koodi": 16,
+    "kunta": "Asikkala",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 5
+  },
+  {
+    "kunta-koodi": 18,
+    "kunta": "Askola",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 6
+  },
+  {
+    "kunta-koodi": 19,
+    "kunta": "Aura",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 7
+  },
+  {
+    "kunta-koodi": 46,
+    "kunta": "Enonkoski",
+    "shp:n koodi": 11,
+    "sairaanhoitopiiri": "Itä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 8
+  },
+  {
+    "kunta-koodi": 47,
+    "kunta": "Enontekiö",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 9
+  },
+  {
+    "kunta-koodi": 49,
+    "kunta": "Espoo",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 10
+  },
+  {
+    "kunta-koodi": 50,
+    "kunta": "Eura",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 11
+  },
+  {
+    "kunta-koodi": 51,
+    "kunta": "Eurajoki",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 12
+  },
+  {
+    "kunta-koodi": 52,
+    "kunta": "Evijärvi",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 13
+  },
+  {
+    "kunta-koodi": 61,
+    "kunta": "Forssa",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 14
+  },
+  {
+    "kunta-koodi": 69,
+    "kunta": "Haapajärvi",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 15
+  },
+  {
+    "kunta-koodi": 71,
+    "kunta": "Haapavesi",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 16
+  },
+  {
+    "kunta-koodi": 72,
+    "kunta": "Hailuoto",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 17
+  },
+  {
+    "kunta-koodi": 74,
+    "kunta": "Halsua",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 18
+  },
+  {
+    "kunta-koodi": 75,
+    "kunta": "Hamina",
+    "shp:n koodi": 8,
+    "sairaanhoitopiiri": "Kymenlaakso",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 19
+  },
+  {
+    "kunta-koodi": 77,
+    "kunta": "Hankasalmi",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 20
+  },
+  {
+    "kunta-koodi": 78,
+    "kunta": "Hanko",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 21
+  },
+  {
+    "kunta-koodi": 79,
+    "kunta": "Harjavalta",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 22
+  },
+  {
+    "kunta-koodi": 81,
+    "kunta": "Hartola",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 23
+  },
+  {
+    "kunta-koodi": 82,
+    "kunta": "Hattula",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 24
+  },
+  {
+    "kunta-koodi": 86,
+    "kunta": "Hausjärvi",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 25
+  },
+  {
+    "kunta-koodi": 111,
+    "kunta": "Heinola",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 26
+  },
+  {
+    "kunta-koodi": 90,
+    "kunta": "Heinävesi",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 27
+  },
+  {
+    "kunta-koodi": 91,
+    "kunta": "Helsinki",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 28
+  },
+  {
+    "kunta-koodi": 97,
+    "kunta": "Hirvensalmi",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 29
+  },
+  {
+    "kunta-koodi": 98,
+    "kunta": "Hollola",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 30
+  },
+  {
+    "kunta-koodi": 99,
+    "kunta": "Honkajoki",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 31
+  },
+  {
+    "kunta-koodi": 102,
+    "kunta": "Huittinen",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 32
+  },
+  {
+    "kunta-koodi": 103,
+    "kunta": "Humppila",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 33
+  },
+  {
+    "kunta-koodi": 105,
+    "kunta": "Hyrynsalmi",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 34
+  },
+  {
+    "kunta-koodi": 106,
+    "kunta": "Hyvinkää",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 35
+  },
+  {
+    "kunta-koodi": 108,
+    "kunta": "Hämeenkyrö",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 36
+  },
+  {
+    "kunta-koodi": 109,
+    "kunta": "Hämeenlinna",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 37
+  },
+  {
+    "kunta-koodi": 139,
+    "kunta": "Ii",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 38
+  },
+  {
+    "kunta-koodi": 140,
+    "kunta": "Iisalmi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 39
+  },
+  {
+    "kunta-koodi": 142,
+    "kunta": "Iitti",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 40
+  },
+  {
+    "kunta-koodi": 143,
+    "kunta": "Ikaalinen",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 41
+  },
+  {
+    "kunta-koodi": 145,
+    "kunta": "Ilmajoki",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 42
+  },
+  {
+    "kunta-koodi": 146,
+    "kunta": "Ilomantsi",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 43
+  },
+  {
+    "kunta-koodi": 153,
+    "kunta": "Imatra",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 44
+  },
+  {
+    "kunta-koodi": 148,
+    "kunta": "Inari",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 45
+  },
+  {
+    "kunta-koodi": 149,
+    "kunta": "Inkoo",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 46
+  },
+  {
+    "kunta-koodi": 151,
+    "kunta": "Isojoki",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 47
+  },
+  {
+    "kunta-koodi": 152,
+    "kunta": "Isokyrö",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 48
+  },
+  {
+    "kunta-koodi": 165,
+    "kunta": "Janakkala",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 49
+  },
+  {
+    "kunta-koodi": 167,
+    "kunta": "Joensuu",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 50
+  },
+  {
+    "kunta-koodi": 169,
+    "kunta": "Jokioinen",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 51
+  },
+  {
+    "kunta-koodi": 171,
+    "kunta": "Joroinen",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 52
+  },
+  {
+    "kunta-koodi": 172,
+    "kunta": "Joutsa",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 53
+  },
+  {
+    "kunta-koodi": 176,
+    "kunta": "Juuka",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 54
+  },
+  {
+    "kunta-koodi": 177,
+    "kunta": "Juupajoki",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 55
+  },
+  {
+    "kunta-koodi": 178,
+    "kunta": "Juva",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 56
+  },
+  {
+    "kunta-koodi": 179,
+    "kunta": "Jyväskylä",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 57
+  },
+  {
+    "kunta-koodi": 181,
+    "kunta": "Jämijärvi",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 58
+  },
+  {
+    "kunta-koodi": 182,
+    "kunta": "Jämsä",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 59
+  },
+  {
+    "kunta-koodi": 186,
+    "kunta": "Järvenpää",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 60
+  },
+  {
+    "kunta-koodi": 202,
+    "kunta": "Kaarina",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 61
+  },
+  {
+    "kunta-koodi": 204,
+    "kunta": "Kaavi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 62
+  },
+  {
+    "kunta-koodi": 205,
+    "kunta": "Kajaani",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 63
+  },
+  {
+    "kunta-koodi": 208,
+    "kunta": "Kalajoki",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 64
+  },
+  {
+    "kunta-koodi": 211,
+    "kunta": "Kangasala",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 65
+  },
+  {
+    "kunta-koodi": 213,
+    "kunta": "Kangasniemi",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 66
+  },
+  {
+    "kunta-koodi": 214,
+    "kunta": "Kankaanpää",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 67
+  },
+  {
+    "kunta-koodi": 216,
+    "kunta": "Kannonkoski",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 68
+  },
+  {
+    "kunta-koodi": 217,
+    "kunta": "Kannus",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 69
+  },
+  {
+    "kunta-koodi": 218,
+    "kunta": "Karijoki",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 70
+  },
+  {
+    "kunta-koodi": 224,
+    "kunta": "Karkkila",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 71
+  },
+  {
+    "kunta-koodi": 226,
+    "kunta": "Karstula",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 72
+  },
+  {
+    "kunta-koodi": 230,
+    "kunta": "Karvia",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 73
+  },
+  {
+    "kunta-koodi": 231,
+    "kunta": "Kaskinen",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 74
+  },
+  {
+    "kunta-koodi": 232,
+    "kunta": "Kauhajoki",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 75
+  },
+  {
+    "kunta-koodi": 233,
+    "kunta": "Kauhava",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 76
+  },
+  {
+    "kunta-koodi": 235,
+    "kunta": "Kauniainen",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 77
+  },
+  {
+    "kunta-koodi": 236,
+    "kunta": "Kaustinen",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 78
+  },
+  {
+    "kunta-koodi": 239,
+    "kunta": "Keitele",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 79
+  },
+  {
+    "kunta-koodi": 240,
+    "kunta": "Kemi",
+    "shp:n koodi": 20,
+    "sairaanhoitopiiri": "Länsi-Pohja",
+    "erva-alue": "OYS",
+    "kuntien lkm": 80
+  },
+  {
+    "kunta-koodi": 320,
+    "kunta": "Kemijärvi",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 81
+  },
+  {
+    "kunta-koodi": 241,
+    "kunta": "Keminmaa",
+    "shp:n koodi": 20,
+    "sairaanhoitopiiri": "Länsi-Pohja",
+    "erva-alue": "OYS",
+    "kuntien lkm": 82
+  },
+  {
+    "kunta-koodi": 322,
+    "kunta": "Kemiönsaari",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 83
+  },
+  {
+    "kunta-koodi": 244,
+    "kunta": "Kempele",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 84
+  },
+  {
+    "kunta-koodi": 245,
+    "kunta": "Kerava",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 85
+  },
+  {
+    "kunta-koodi": 249,
+    "kunta": "Keuruu",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 86
+  },
+  {
+    "kunta-koodi": 250,
+    "kunta": "Kihniö",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 87
+  },
+  {
+    "kunta-koodi": 256,
+    "kunta": "Kinnula",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 88
+  },
+  {
+    "kunta-koodi": 257,
+    "kunta": "Kirkkonummi",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 89
+  },
+  {
+    "kunta-koodi": 260,
+    "kunta": "Kitee",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 90
+  },
+  {
+    "kunta-koodi": 261,
+    "kunta": "Kittilä",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 91
+  },
+  {
+    "kunta-koodi": 263,
+    "kunta": "Kiuruvesi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 92
+  },
+  {
+    "kunta-koodi": 265,
+    "kunta": "Kivijärvi",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 93
+  },
+  {
+    "kunta-koodi": 271,
+    "kunta": "Kokemäki",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 94
+  },
+  {
+    "kunta-koodi": 272,
+    "kunta": "Kokkola",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 95
+  },
+  {
+    "kunta-koodi": 273,
+    "kunta": "Kolari",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 96
+  },
+  {
+    "kunta-koodi": 275,
+    "kunta": "Konnevesi",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 97
+  },
+  {
+    "kunta-koodi": 276,
+    "kunta": "Kontiolahti",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 98
+  },
+  {
+    "kunta-koodi": 280,
+    "kunta": "Korsnäs",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 99
+  },
+  {
+    "kunta-koodi": 284,
+    "kunta": "Koski tl",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 100
+  },
+  {
+    "kunta-koodi": 285,
+    "kunta": "Kotka",
+    "shp:n koodi": 8,
+    "sairaanhoitopiiri": "Kymenlaakso",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 101
+  },
+  {
+    "kunta-koodi": 286,
+    "kunta": "Kouvola",
+    "shp:n koodi": 8,
+    "sairaanhoitopiiri": "Kymenlaakso",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 102
+  },
+  {
+    "kunta-koodi": 287,
+    "kunta": "Kristiinankaupunki",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 103
+  },
+  {
+    "kunta-koodi": 288,
+    "kunta": "Kruunupyy",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 104
+  },
+  {
+    "kunta-koodi": 290,
+    "kunta": "Kuhmo",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 105
+  },
+  {
+    "kunta-koodi": 291,
+    "kunta": "Kuhmoinen",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 106
+  },
+  {
+    "kunta-koodi": 297,
+    "kunta": "Kuopio",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 107
+  },
+  {
+    "kunta-koodi": 300,
+    "kunta": "Kuortane",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 108
+  },
+  {
+    "kunta-koodi": 301,
+    "kunta": "Kurikka",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 109
+  },
+  {
+    "kunta-koodi": 304,
+    "kunta": "Kustavi",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 110
+  },
+  {
+    "kunta-koodi": 305,
+    "kunta": "Kuusamo",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 111
+  },
+  {
+    "kunta-koodi": 312,
+    "kunta": "Kyyjärvi",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 112
+  },
+  {
+    "kunta-koodi": 316,
+    "kunta": "Kärkölä",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 113
+  },
+  {
+    "kunta-koodi": 317,
+    "kunta": "Kärsämäki",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 114
+  },
+  {
+    "kunta-koodi": 398,
+    "kunta": "Lahti",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 115
+  },
+  {
+    "kunta-koodi": 399,
+    "kunta": "Laihia",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 116
+  },
+  {
+    "kunta-koodi": 400,
+    "kunta": "Laitila",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 117
+  },
+  {
+    "kunta-koodi": 407,
+    "kunta": "Lapinjärvi",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 118
+  },
+  {
+    "kunta-koodi": 402,
+    "kunta": "Lapinlahti",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 119
+  },
+  {
+    "kunta-koodi": 403,
+    "kunta": "Lappajärvi",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 120
+  },
+  {
+    "kunta-koodi": 405,
+    "kunta": "Lappeenranta",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 121
+  },
+  {
+    "kunta-koodi": 408,
+    "kunta": "Lapua",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 122
+  },
+  {
+    "kunta-koodi": 410,
+    "kunta": "Laukaa",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 123
+  },
+  {
+    "kunta-koodi": 416,
+    "kunta": "Lemi",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 124
+  },
+  {
+    "kunta-koodi": 418,
+    "kunta": "Lempäälä",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 125
+  },
+  {
+    "kunta-koodi": 420,
+    "kunta": "Leppävirta",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 126
+  },
+  {
+    "kunta-koodi": 421,
+    "kunta": "Lestijärvi",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 127
+  },
+  {
+    "kunta-koodi": 422,
+    "kunta": "Lieksa",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 128
+  },
+  {
+    "kunta-koodi": 423,
+    "kunta": "Lieto",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 129
+  },
+  {
+    "kunta-koodi": 425,
+    "kunta": "Liminka",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 130
+  },
+  {
+    "kunta-koodi": 426,
+    "kunta": "Liperi",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 131
+  },
+  {
+    "kunta-koodi": 444,
+    "kunta": "Lohja",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 132
+  },
+  {
+    "kunta-koodi": 430,
+    "kunta": "Loimaa",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 133
+  },
+  {
+    "kunta-koodi": 433,
+    "kunta": "Loppi",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 134
+  },
+  {
+    "kunta-koodi": 434,
+    "kunta": "Loviisa",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 135
+  },
+  {
+    "kunta-koodi": 435,
+    "kunta": "Luhanka",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 136
+  },
+  {
+    "kunta-koodi": 436,
+    "kunta": "Lumijoki",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 137
+  },
+  {
+    "kunta-koodi": 440,
+    "kunta": "Luoto",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 138
+  },
+  {
+    "kunta-koodi": 441,
+    "kunta": "Luumäki",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 139
+  },
+  {
+    "kunta-koodi": 475,
+    "kunta": "Maalahti",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 140
+  },
+  {
+    "kunta-koodi": 480,
+    "kunta": "Marttila",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 141
+  },
+  {
+    "kunta-koodi": 481,
+    "kunta": "Masku",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 142
+  },
+  {
+    "kunta-koodi": 483,
+    "kunta": "Merijärvi",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 143
+  },
+  {
+    "kunta-koodi": 484,
+    "kunta": "Merikarvia",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 144
+  },
+  {
+    "kunta-koodi": 489,
+    "kunta": "Miehikkälä",
+    "shp:n koodi": 8,
+    "sairaanhoitopiiri": "Kymenlaakso",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 145
+  },
+  {
+    "kunta-koodi": 491,
+    "kunta": "Mikkeli",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 146
+  },
+  {
+    "kunta-koodi": 494,
+    "kunta": "Muhos",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 147
+  },
+  {
+    "kunta-koodi": 495,
+    "kunta": "Multia",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 148
+  },
+  {
+    "kunta-koodi": 498,
+    "kunta": "Muonio",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 149
+  },
+  {
+    "kunta-koodi": 499,
+    "kunta": "Mustasaari",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 150
+  },
+  {
+    "kunta-koodi": 500,
+    "kunta": "Muurame",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 151
+  },
+  {
+    "kunta-koodi": 503,
+    "kunta": "Mynämäki",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 152
+  },
+  {
+    "kunta-koodi": 504,
+    "kunta": "Myrskylä",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 153
+  },
+  {
+    "kunta-koodi": 505,
+    "kunta": "Mäntsälä",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 154
+  },
+  {
+    "kunta-koodi": 508,
+    "kunta": "Mänttä-Vilppula",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 155
+  },
+  {
+    "kunta-koodi": 507,
+    "kunta": "Mäntyharju",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 156
+  },
+  {
+    "kunta-koodi": 529,
+    "kunta": "Naantali",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 157
+  },
+  {
+    "kunta-koodi": 531,
+    "kunta": "Nakkila",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 158
+  },
+  {
+    "kunta-koodi": 535,
+    "kunta": "Nivala",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 159
+  },
+  {
+    "kunta-koodi": 536,
+    "kunta": "Nokia",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 160
+  },
+  {
+    "kunta-koodi": 538,
+    "kunta": "Nousiainen",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 161
+  },
+  {
+    "kunta-koodi": 541,
+    "kunta": "Nurmes",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 162
+  },
+  {
+    "kunta-koodi": 543,
+    "kunta": "Nurmijärvi",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 163
+  },
+  {
+    "kunta-koodi": 545,
+    "kunta": "Närpiö",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 164
+  },
+  {
+    "kunta-koodi": 560,
+    "kunta": "Orimattila",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 165
+  },
+  {
+    "kunta-koodi": 561,
+    "kunta": "Oripää",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 166
+  },
+  {
+    "kunta-koodi": 562,
+    "kunta": "Orivesi",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 167
+  },
+  {
+    "kunta-koodi": 563,
+    "kunta": "Oulainen",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 168
+  },
+  {
+    "kunta-koodi": 564,
+    "kunta": "Oulu",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 169
+  },
+  {
+    "kunta-koodi": 309,
+    "kunta": "Outokumpu",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 170
+  },
+  {
+    "kunta-koodi": 576,
+    "kunta": "Padasjoki",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 171
+  },
+  {
+    "kunta-koodi": 577,
+    "kunta": "Paimio",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 172
+  },
+  {
+    "kunta-koodi": 578,
+    "kunta": "Paltamo",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 173
+  },
+  {
+    "kunta-koodi": 445,
+    "kunta": "Parainen",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 174
+  },
+  {
+    "kunta-koodi": 580,
+    "kunta": "Parikkala",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 175
+  },
+  {
+    "kunta-koodi": 581,
+    "kunta": "Parkano",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 176
+  },
+  {
+    "kunta-koodi": 599,
+    "kunta": "Pedersöre",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 177
+  },
+  {
+    "kunta-koodi": 583,
+    "kunta": "Pelkosenniemi",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 178
+  },
+  {
+    "kunta-koodi": 854,
+    "kunta": "Pello",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 179
+  },
+  {
+    "kunta-koodi": 584,
+    "kunta": "Perho",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 180
+  },
+  {
+    "kunta-koodi": 588,
+    "kunta": "Pertunmaa",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 181
+  },
+  {
+    "kunta-koodi": 592,
+    "kunta": "Petäjävesi",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 182
+  },
+  {
+    "kunta-koodi": 593,
+    "kunta": "Pieksämäki",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 183
+  },
+  {
+    "kunta-koodi": 595,
+    "kunta": "Pielavesi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 184
+  },
+  {
+    "kunta-koodi": 598,
+    "kunta": "Pietarsaari",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 185
+  },
+  {
+    "kunta-koodi": 601,
+    "kunta": "Pihtipudas",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 186
+  },
+  {
+    "kunta-koodi": 604,
+    "kunta": "Pirkkala",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 187
+  },
+  {
+    "kunta-koodi": 607,
+    "kunta": "Polvijärvi",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 188
+  },
+  {
+    "kunta-koodi": 608,
+    "kunta": "Pomarkku",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 189
+  },
+  {
+    "kunta-koodi": 609,
+    "kunta": "Pori",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 190
+  },
+  {
+    "kunta-koodi": 611,
+    "kunta": "Pornainen",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 191
+  },
+  {
+    "kunta-koodi": 638,
+    "kunta": "Porvoo",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 192
+  },
+  {
+    "kunta-koodi": 614,
+    "kunta": "Posio",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 193
+  },
+  {
+    "kunta-koodi": 615,
+    "kunta": "Pudasjärvi",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 194
+  },
+  {
+    "kunta-koodi": 616,
+    "kunta": "Pukkila",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 195
+  },
+  {
+    "kunta-koodi": 619,
+    "kunta": "Punkalaidun",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 196
+  },
+  {
+    "kunta-koodi": 620,
+    "kunta": "Puolanka",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 197
+  },
+  {
+    "kunta-koodi": 623,
+    "kunta": "Puumala",
+    "shp:n koodi": 10,
+    "sairaanhoitopiiri": "Etelä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 198
+  },
+  {
+    "kunta-koodi": 624,
+    "kunta": "Pyhtää",
+    "shp:n koodi": 8,
+    "sairaanhoitopiiri": "Kymenlaakso",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 199
+  },
+  {
+    "kunta-koodi": 625,
+    "kunta": "Pyhäjoki",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 200
+  },
+  {
+    "kunta-koodi": 626,
+    "kunta": "Pyhäjärvi",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 201
+  },
+  {
+    "kunta-koodi": 630,
+    "kunta": "Pyhäntä",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 202
+  },
+  {
+    "kunta-koodi": 631,
+    "kunta": "Pyhäranta",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 203
+  },
+  {
+    "kunta-koodi": 635,
+    "kunta": "Pälkäne",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 204
+  },
+  {
+    "kunta-koodi": 636,
+    "kunta": "Pöytyä",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 205
+  },
+  {
+    "kunta-koodi": 678,
+    "kunta": "Raahe",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 206
+  },
+  {
+    "kunta-koodi": 710,
+    "kunta": "Raasepori",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 207
+  },
+  {
+    "kunta-koodi": 680,
+    "kunta": "Raisio",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 208
+  },
+  {
+    "kunta-koodi": 681,
+    "kunta": "Rantasalmi",
+    "shp:n koodi": 11,
+    "sairaanhoitopiiri": "Itä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 209
+  },
+  {
+    "kunta-koodi": 683,
+    "kunta": "Ranua",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 210
+  },
+  {
+    "kunta-koodi": 684,
+    "kunta": "Rauma",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 211
+  },
+  {
+    "kunta-koodi": 686,
+    "kunta": "Rautalampi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 212
+  },
+  {
+    "kunta-koodi": 687,
+    "kunta": "Rautavaara",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 213
+  },
+  {
+    "kunta-koodi": 689,
+    "kunta": "Rautjärvi",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 214
+  },
+  {
+    "kunta-koodi": 691,
+    "kunta": "Reisjärvi",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 215
+  },
+  {
+    "kunta-koodi": 694,
+    "kunta": "Riihimäki",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 216
+  },
+  {
+    "kunta-koodi": 697,
+    "kunta": "Ristijärvi",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 217
+  },
+  {
+    "kunta-koodi": 698,
+    "kunta": "Rovaniemi",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 218
+  },
+  {
+    "kunta-koodi": 700,
+    "kunta": "Ruokolahti",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 219
+  },
+  {
+    "kunta-koodi": 702,
+    "kunta": "Ruovesi",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 220
+  },
+  {
+    "kunta-koodi": 704,
+    "kunta": "Rusko",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 221
+  },
+  {
+    "kunta-koodi": 707,
+    "kunta": "Rääkkylä",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 222
+  },
+  {
+    "kunta-koodi": 729,
+    "kunta": "Saarijärvi",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 223
+  },
+  {
+    "kunta-koodi": 732,
+    "kunta": "Salla",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 224
+  },
+  {
+    "kunta-koodi": 734,
+    "kunta": "Salo",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 225
+  },
+  {
+    "kunta-koodi": 790,
+    "kunta": "Sastamala",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 226
+  },
+  {
+    "kunta-koodi": 738,
+    "kunta": "Sauvo",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 227
+  },
+  {
+    "kunta-koodi": 739,
+    "kunta": "Savitaipale",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 228
+  },
+  {
+    "kunta-koodi": 740,
+    "kunta": "Savonlinna",
+    "shp:n koodi": 11,
+    "sairaanhoitopiiri": "Itä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 229
+  },
+  {
+    "kunta-koodi": 742,
+    "kunta": "Savukoski",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 230
+  },
+  {
+    "kunta-koodi": 743,
+    "kunta": "Seinäjoki",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 231
+  },
+  {
+    "kunta-koodi": 746,
+    "kunta": "Sievi",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 232
+  },
+  {
+    "kunta-koodi": 747,
+    "kunta": "Siikainen",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 233
+  },
+  {
+    "kunta-koodi": 748,
+    "kunta": "Siikajoki",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 234
+  },
+  {
+    "kunta-koodi": 791,
+    "kunta": "Siikalatva",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 235
+  },
+  {
+    "kunta-koodi": 749,
+    "kunta": "Siilinjärvi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 236
+  },
+  {
+    "kunta-koodi": 751,
+    "kunta": "Simo",
+    "shp:n koodi": 20,
+    "sairaanhoitopiiri": "Länsi-Pohja",
+    "erva-alue": "OYS",
+    "kuntien lkm": 237
+  },
+  {
+    "kunta-koodi": 753,
+    "kunta": "Sipoo",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 238
+  },
+  {
+    "kunta-koodi": 755,
+    "kunta": "Siuntio",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 239
+  },
+  {
+    "kunta-koodi": 758,
+    "kunta": "Sodankylä",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 240
+  },
+  {
+    "kunta-koodi": 759,
+    "kunta": "Soini",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 241
+  },
+  {
+    "kunta-koodi": 761,
+    "kunta": "Somero",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 242
+  },
+  {
+    "kunta-koodi": 762,
+    "kunta": "Sonkajärvi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 243
+  },
+  {
+    "kunta-koodi": 765,
+    "kunta": "Sotkamo",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 244
+  },
+  {
+    "kunta-koodi": 768,
+    "kunta": "Sulkava",
+    "shp:n koodi": 11,
+    "sairaanhoitopiiri": "Itä-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 245
+  },
+  {
+    "kunta-koodi": 777,
+    "kunta": "Suomussalmi",
+    "shp:n koodi": 19,
+    "sairaanhoitopiiri": "Kainuu",
+    "erva-alue": "OYS",
+    "kuntien lkm": 246
+  },
+  {
+    "kunta-koodi": 778,
+    "kunta": "Suonenjoki",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 247
+  },
+  {
+    "kunta-koodi": 781,
+    "kunta": "Sysmä",
+    "shp:n koodi": 7,
+    "sairaanhoitopiiri": "Päijät-Häme",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 248
+  },
+  {
+    "kunta-koodi": 783,
+    "kunta": "Säkylä",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 249
+  },
+  {
+    "kunta-koodi": 831,
+    "kunta": "Taipalsaari",
+    "shp:n koodi": 9,
+    "sairaanhoitopiiri": "Etelä-Karjala",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 250
+  },
+  {
+    "kunta-koodi": 832,
+    "kunta": "Taivalkoski",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 251
+  },
+  {
+    "kunta-koodi": 833,
+    "kunta": "Taivassalo",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 252
+  },
+  {
+    "kunta-koodi": 834,
+    "kunta": "Tammela",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 253
+  },
+  {
+    "kunta-koodi": 837,
+    "kunta": "Tampere",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 254
+  },
+  {
+    "kunta-koodi": 844,
+    "kunta": "Tervo",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 255
+  },
+  {
+    "kunta-koodi": 845,
+    "kunta": "Tervola",
+    "shp:n koodi": 20,
+    "sairaanhoitopiiri": "Länsi-Pohja",
+    "erva-alue": "OYS",
+    "kuntien lkm": 256
+  },
+  {
+    "kunta-koodi": 846,
+    "kunta": "Teuva",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 257
+  },
+  {
+    "kunta-koodi": 848,
+    "kunta": "Tohmajärvi",
+    "shp:n koodi": 12,
+    "sairaanhoitopiiri": "Pohjois-Karjala",
+    "erva-alue": "KYS",
+    "kuntien lkm": 258
+  },
+  {
+    "kunta-koodi": 849,
+    "kunta": "Toholampi",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 259
+  },
+  {
+    "kunta-koodi": 850,
+    "kunta": "Toivakka",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 260
+  },
+  {
+    "kunta-koodi": 851,
+    "kunta": "Tornio",
+    "shp:n koodi": 20,
+    "sairaanhoitopiiri": "Länsi-Pohja",
+    "erva-alue": "OYS",
+    "kuntien lkm": 261
+  },
+  {
+    "kunta-koodi": 853,
+    "kunta": "Turku",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 262
+  },
+  {
+    "kunta-koodi": 857,
+    "kunta": "Tuusniemi",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 263
+  },
+  {
+    "kunta-koodi": 858,
+    "kunta": "Tuusula",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 264
+  },
+  {
+    "kunta-koodi": 859,
+    "kunta": "Tyrnävä",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 265
+  },
+  {
+    "kunta-koodi": 886,
+    "kunta": "Ulvila",
+    "shp:n koodi": 4,
+    "sairaanhoitopiiri": "Satakunta",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 266
+  },
+  {
+    "kunta-koodi": 887,
+    "kunta": "Urjala",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 267
+  },
+  {
+    "kunta-koodi": 889,
+    "kunta": "Utajärvi",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 268
+  },
+  {
+    "kunta-koodi": 890,
+    "kunta": "Utsjoki",
+    "shp:n koodi": 21,
+    "sairaanhoitopiiri": "Lappi",
+    "erva-alue": "OYS",
+    "kuntien lkm": 269
+  },
+  {
+    "kunta-koodi": 892,
+    "kunta": "Uurainen",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 270
+  },
+  {
+    "kunta-koodi": 893,
+    "kunta": "Uusikaarlepyy",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 271
+  },
+  {
+    "kunta-koodi": 895,
+    "kunta": "Uusikaupunki",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 272
+  },
+  {
+    "kunta-koodi": 785,
+    "kunta": "Vaala",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 273
+  },
+  {
+    "kunta-koodi": 905,
+    "kunta": "Vaasa",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 274
+  },
+  {
+    "kunta-koodi": 908,
+    "kunta": "Valkeakoski",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 275
+  },
+  {
+    "kunta-koodi": 92,
+    "kunta": "Vantaa",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 276
+  },
+  {
+    "kunta-koodi": 915,
+    "kunta": "Varkaus",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 277
+  },
+  {
+    "kunta-koodi": 918,
+    "kunta": "Vehmaa",
+    "shp:n koodi": 3,
+    "sairaanhoitopiiri": "Varsinais-Suomi",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 278
+  },
+  {
+    "kunta-koodi": 921,
+    "kunta": "Vesanto",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 279
+  },
+  {
+    "kunta-koodi": 922,
+    "kunta": "Vesilahti",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 280
+  },
+  {
+    "kunta-koodi": 924,
+    "kunta": "Veteli",
+    "shp:n koodi": 17,
+    "sairaanhoitopiiri": "Keski-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 281
+  },
+  {
+    "kunta-koodi": 925,
+    "kunta": "Vieremä",
+    "shp:n koodi": 13,
+    "sairaanhoitopiiri": "Pohjois-Savo",
+    "erva-alue": "KYS",
+    "kuntien lkm": 282
+  },
+  {
+    "kunta-koodi": 927,
+    "kunta": "Vihti",
+    "shp:n koodi": 25,
+    "sairaanhoitopiiri": "HUS",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 283
+  },
+  {
+    "kunta-koodi": 931,
+    "kunta": "Viitasaari",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 284
+  },
+  {
+    "kunta-koodi": 934,
+    "kunta": "Vimpeli",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 285
+  },
+  {
+    "kunta-koodi": 935,
+    "kunta": "Virolahti",
+    "shp:n koodi": 8,
+    "sairaanhoitopiiri": "Kymenlaakso",
+    "erva-alue": "HYKS",
+    "kuntien lkm": 286
+  },
+  {
+    "kunta-koodi": 936,
+    "kunta": "Virrat",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 287
+  },
+  {
+    "kunta-koodi": 946,
+    "kunta": "Vöyri",
+    "shp:n koodi": 16,
+    "sairaanhoitopiiri": "Vaasa",
+    "erva-alue": "TYKS",
+    "kuntien lkm": 288
+  },
+  {
+    "kunta-koodi": 976,
+    "kunta": "Ylitornio",
+    "shp:n koodi": 20,
+    "sairaanhoitopiiri": "Länsi-Pohja",
+    "erva-alue": "OYS",
+    "kuntien lkm": 289
+  },
+  {
+    "kunta-koodi": 977,
+    "kunta": "Ylivieska",
+    "shp:n koodi": 18,
+    "sairaanhoitopiiri": "Pohjois-Pohjanmaa",
+    "erva-alue": "OYS",
+    "kuntien lkm": 290
+  },
+  {
+    "kunta-koodi": 980,
+    "kunta": "Ylöjärvi",
+    "shp:n koodi": 6,
+    "sairaanhoitopiiri": "Pirkanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 291
+  },
+  {
+    "kunta-koodi": 981,
+    "kunta": "Ypäjä",
+    "shp:n koodi": 5,
+    "sairaanhoitopiiri": "Kanta-Häme",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 292
+  },
+  {
+    "kunta-koodi": 989,
+    "kunta": "Ähtäri",
+    "shp:n koodi": 15,
+    "sairaanhoitopiiri": "Etelä-Pohjanmaa",
+    "erva-alue": "TAYS",
+    "kuntien lkm": 293
+  },
+  {
+    "kunta-koodi": 992,
+    "kunta": "Äänekoski",
+    "shp:n koodi": 14,
+    "sairaanhoitopiiri": "Keski-Suomi",
+    "erva-alue": "KYS",
+    "kuntien lkm": 294
+  }
+]

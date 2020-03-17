@@ -1,0 +1,26 @@
+{
+  "name": "with-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "isomorphic-unfetch": "3.0.0",
+    "mapbox-gl": "1.8.1",
+    "next": "9.3.0",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
+  },
+  "devDependencies": {
+    "@types/mapbox-gl": "1.8.1",
+    "@types/node": "12.12.21",
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "typescript": "3.7.3"
+  },
+  "license": "ISC"
+}
