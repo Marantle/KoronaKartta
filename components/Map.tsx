@@ -325,7 +325,7 @@ const Map: NextPage<Props> = ({
             }
           }
           input {
-            padding-bottom: 10px;
+            padding-bottom: 25px;
             width: 100%;
           }
           input[type="range"] {
