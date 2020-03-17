@@ -206,6 +206,7 @@ const Map: NextPage<Props> = ({
             currentInfections,
             curedInfections
           } = e.features[0].properties;
+          
 
           popup
             .setLngLat(e.lngLat)
