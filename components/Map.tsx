@@ -26,7 +26,7 @@ let darkMode = false;
 
 if (
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches
+  !window.matchMedia("(prefers-color-scheme: dark)").matches
 ) {
   colorScheme = "mapbox://styles/markonen/ck7v43xa204p81ip70vkmi2l3";
   textColor = "rgb(255, 255, 255)";
@@ -60,9 +60,10 @@ const Map: NextPage<Props> = ({
   coronaData
 }) => {
   const [mapState] = useState({
-    lat: 61.4978,
-    lng: 23.761,
-    zoom: 5
+    
+    lat: 64.55056046409041,
+    lng: 26.43946362291001, 
+    zoom: 4.5
   });
 
   const dateSet = 
@@ -230,16 +231,18 @@ const Map: NextPage<Props> = ({
           popup.remove();
         });
 
-        // map.on("mousedown", function(e) {
-        //   const lonlat = e.lngLat.wrap();
-        //   console.log(`${lonlat.lng}, ${lonlat.lat}`);
-        //   navigator.clipboard.writeText(`${lonlat.lng}, ${lonlat.lat}`);
-        // });
+        map.on("mousedown", function(e) {
+          const lonlat = e.lngLat.wrap();
+          console.log(`${lonlat.lng}, ${lonlat.lat}`);
+          navigator.clipboard.writeText(`${lonlat.lng}, ${lonlat.lat}`);
+        });
+
 
         map.resize();
       });
     };
 
+    
     if (!map) initializeMap();
 
     return () => {};
@@ -299,7 +302,6 @@ const Map: NextPage<Props> = ({
           defaultValue={dates.length - 1}
           onChange={dateSliderChanged}
         />
-        <label htmlFor="diseasedate">Rajaa päivämäärää</label>
         <style jsx>{`
           label,
           p {
@@ -310,7 +312,11 @@ const Map: NextPage<Props> = ({
             text-align: center;
             line-height: 150%;
           }
-          @media (prefers-color-scheme: dark) {
+
+          p {
+            margin-bottom: 5px;
+          }
+          @media (prefers-color-scheme: light) {
             label,
             p {
               color: white;

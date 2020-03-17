@@ -26,7 +26,7 @@ const IndexPage: NextPage<Props> = ({ data }) => {
   });
 
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout>
       <DynamicMap
         hcdGeoData={hcdGeoData}
         hcdCentroidGeoData={hcdCentroiGeoData}
