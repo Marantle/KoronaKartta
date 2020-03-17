@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+@media (prefers-color-scheme: dark) {
+    body { background-color: black;}
+  }
+
 body {
     margin: 0;
     padding: 0;

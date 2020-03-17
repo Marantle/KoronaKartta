@@ -26,7 +26,7 @@ let darkMode = false;
 
 if (
   window.matchMedia &&
-  !window.matchMedia("(prefers-color-scheme: dark)").matches
+  window.matchMedia("(prefers-color-scheme: dark)").matches
 ) {
   colorScheme = "mapbox://styles/markonen/ck7v43xa204p81ip70vkmi2l3";
   textColor = "rgb(255, 255, 255)";
@@ -304,11 +304,19 @@ const Map: NextPage<Props> = ({
           label,
           p {
             font-family: "Roboto", sans-serif;
-            font-size: 1.4em;
+            font-size: 2em;
             width: 100%;
             display: block;
             text-align: center;
             line-height: 150%;
+          }
+          @media (prefers-color-scheme: dark) {
+            label,
+            p {
+              color: white;
+              -webkit-text-stroke-width: 0.5px;
+              -webkit-text-stroke-color: black;
+            }
           }
           input {
             padding-bottom: 10px;
