@@ -50,6 +50,8 @@ typings/
 # Optional npm cache directory
 .npm
 
+out/
+
 # Optional eslint cache
 .eslintcache
 
@@ -102,3 +104,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Local Netlify folder
+.netlify
