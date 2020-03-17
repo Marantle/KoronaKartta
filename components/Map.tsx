@@ -26,7 +26,7 @@ let darkMode = false;
 
 if (
   window.matchMedia &&
-  !window.matchMedia("(prefers-color-scheme: dark)").matches
+  window.matchMedia("(prefers-color-scheme: dark)").matches
 ) {
   colorScheme = "mapbox://styles/markonen/ck7v43xa204p81ip70vkmi2l3";
   textColor = "rgb(255, 255, 255)";
@@ -316,7 +316,7 @@ const Map: NextPage<Props> = ({
           p {
             margin-bottom: 5px;
           }
-          @media (prefers-color-scheme: light) {
+          @media (prefers-color-scheme: dark) {
             label,
             p {
               color: white;
