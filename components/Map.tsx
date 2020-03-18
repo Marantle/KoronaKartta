@@ -11,6 +11,8 @@ import {
   countCurrent,
   countAll
 } from "../utils/coronaCountUtil";
+import firebase from '../utils/analytics';
+console.log("firebase", firebase)
 
 const townID = "municipalities";
 const centroID = "centroidid";
@@ -207,6 +209,9 @@ const Map: NextPage<Props> = ({
             curedInfections
           } = e.features[0].properties;
           
+          firebase.logEvent("select_content", {
+            content_id: healthCareDistrict
+          })
 
           popup
             .setLngLat(e.lngLat)

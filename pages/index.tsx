@@ -11,6 +11,11 @@ import hcdGeoData from "../sairaus/sairaanhoitopiiritgeocentroid.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
 import { countAll, countCurrent, countRecovered } from "../utils/coronaCountUtil";
 
+
+if (typeof window !== 'undefined') {
+  import('../utils/analytics');  
+}
+
 interface Props {
   data: Corona;
 }
