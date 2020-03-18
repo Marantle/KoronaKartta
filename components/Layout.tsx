@@ -20,6 +20,8 @@ const Layout: React.FunctionComponent<Props> = ({
     <div>
       <Head>
         <title>{title}</title>
+        <link rel="manifest" href="manifest.json" />
+        <link rel="shortcut icon" href="favicon.ico" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         {/* <!-- Primary Meta Tags --> */}
