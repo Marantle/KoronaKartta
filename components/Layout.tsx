@@ -39,6 +39,10 @@ const Layout: React.FunctionComponent<Props> = ({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/manifest.json" />
+        <meta
+          name="google-site-verification"
+          content="3-IeiNIpgM22xCGjvpLtRw-xhmfUAsVTirfnbt8tl9I"
+        />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
 
