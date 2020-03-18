@@ -9,7 +9,7 @@ import {
 } from "../interfaces/corona";
 import hcdGeoData from "../sairaus/sairaanhoitopiiritgeocentroid.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
-import { countAll, countCurrent, countRecovered } from "../utils/coronaCountUtil";
+import { countAll, countCurrent, countRecovered } from "../utils/coronCounter";
 
 
 if (typeof window !== 'undefined') {
@@ -25,7 +25,7 @@ const IndexPage: NextPage<Props> = ({ data }) => {
   const current = countCurrent(data);
   const recovered = countRecovered(data);
 
-  const DynamicMap = dynamic(() => import("../components/Map"), {
+  const DynamicMap = dynamic(() => import("../components/map/Map"), {
     loading: () => <p>Loading...</p>,
     ssr: false
   });
