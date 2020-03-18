@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { NextPage } from "next";
 import mapboxgl, { GeoJSONSource } from "mapbox-gl";
 import CSS from "csstype";
-import { HCD, HCDCentroid } from "../../interfaces/kuntajako";
-import { Corona } from "../../interfaces/corona";
-import { Feature } from "../types/maakuntajako";
+import { HCD, HCDCentroid } from "../../interfaces/json";
+import { Corona, Feature } from "../../interfaces/corona";
+
 import {
   HcdEventCount,
   countRecovered,
@@ -17,7 +17,6 @@ import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
 import { SliderStyle } from "./sliderstyle";
 import { popupHtml } from "./popup";
-console.log("firebase", firebase);
 
 // healthcaredistrict
 const hcdLayerId = "municipalities";
@@ -74,7 +73,7 @@ const Map: NextPage<Props> = ({
     lng: 26.43946362291001,
     zoom: 4.5
   });
-
+  
   // get dates for the slider
   const distinctDates = extractDates(coronaData);
 

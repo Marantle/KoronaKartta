@@ -62,13 +62,33 @@ export enum HealthCareDistrict {
   Lappi = "Lappi"
 }
 
-// Converts JSON strings to/from your types
-export class Convert {
-  public static toCorona(json: string): Corona {
-    return JSON.parse(json);
-  }
+export interface Feature {
+  type:       FeatureType;
+  properties: FeatureProperties;
+  geometry:   Geometry;
+}
 
-  public static coronaToJson(value: Corona): string {
-    return JSON.stringify(value);
-  }
+export enum FeatureType {
+  Feature = "Feature",
+}
+export interface Geometry {
+  type:        GeometryType;
+  coordinates: Array<Array<Array<number[] | number>>>;
+}
+
+export enum GeometryType {
+  MultiPolygon = "MultiPolygon",
+  Polygon = "Polygon",
+}
+
+export interface FeatureProperties {
+  GML_ID:     number;
+  NATCODE:    string;
+  NAMEFIN:    string;
+  NAMESWE:    string;
+  LANDAREA:   number;
+  FRESHWAREA: number;
+  SEAWAREA:   number;
+  TOTALAREA:  number;
+  [key: string]: string | number;
 }

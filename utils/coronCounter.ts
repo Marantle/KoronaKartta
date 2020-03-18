@@ -2,9 +2,9 @@ import {
   Corona,
   Confirmed,
   Recovered,
-  HealthCareDistrictName
+  HealthCareDistrictName,
+  Feature
 } from "../interfaces/corona";
-import { Feature } from "../components/types/maakuntajako";
 
 export type HcdEventCount = {
   [key in HealthCareDistrictName]: number;

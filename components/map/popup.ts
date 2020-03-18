@@ -1,4 +1,4 @@
-import { FeatureProperties } from "../types/maakuntajako";
+import { FeatureProperties } from "../../interfaces/corona";
 
 export const popupHtml = ({
   healthCareDistrict,
