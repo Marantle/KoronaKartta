@@ -12,7 +12,7 @@ type Props = {
 const Layout: React.FunctionComponent<Props> = ({
   children,
   title = "Covid-19 eli Koronaviruksen leviäminen suomessa",
-  description = "Koronakartalla voit selata historiallista koronan leviämistä suomessa ja katsoa sairaanhoitopiirikohtaisesti kokonaistartuntojen, kipeiden sekä parantuneiden määriä.",
+  description = "Klikkaa alueita saadaksesi lisätietoja, Koronakartalla voit selata historiallista koronan leviämistä suomessa ja katsoa sairaanhoitopiirikohtaisesti kokonaistartuntojen, kipeiden sekä parantuneiden määriä.",
   imageUrl = "/banner.png",
   url = "//koronakartta.info/"
 }) => (

@@ -40,6 +40,23 @@ const IndexPage: NextPage<Props> = ({ data }) => {
           curedInfections: recovered
         }}
       />
+      <div>
+        <a href="https://github.com/Marantle/KoronaKartta">
+          <img
+            alt="https://github.com/Marantle/KoronaKartta"
+            src="/githubmark.png"
+          />
+        </a>
+
+        <style jsx>{`
+          position: absolute;
+          top: 0;
+          right: 0;
+          img {
+            width: 2em;
+          }
+        `}</style>
+      </div>
     </Layout>
   );
 };
