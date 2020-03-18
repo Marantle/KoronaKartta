@@ -15,9 +15,9 @@ import {
 } from "../../utils/coronCounter";
 import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
-import { SliderStyle } from "./SliderStyle";
 import { popupHtml } from "./popup";
 import { isDarkMode } from "../../utils/dark";
+import { Slider } from "../Slider";
 
 // healthcaredistrict
 const hcdLayerId = "municipalities";
@@ -79,14 +79,6 @@ const Map: NextPage<Props> = ({
   const [selectedDate, setSelectedDate] = useState(
     distinctDates[distinctDates.length - 1]
   );
-  const [rawInfectionData] = useState(coronaData.rawInfectionData);
-  const [currentInfections, setCurrentInfections] = useState(
-    coronaData.currentInfections
-  );
-  const [curedInfections, setCuredInfections] = useState(
-    coronaData.curedInfections
-  );
-  const [allInfections, setAllInfections] = useState(coronaData.allInfections);
 
   const [map, setMap] = useState<mapboxgl.Map>();
   // end state
@@ -96,6 +88,7 @@ const Map: NextPage<Props> = ({
 
   // initial use-effect to load the map
   useEffect(() => {
+    const { allInfections, currentInfections, curedInfections } = coronaData;
     const initializeMap = () => {
       const map = new mapboxgl.Map({
         container: mapContainer.current as any,
@@ -235,10 +228,10 @@ const Map: NextPage<Props> = ({
   // dateselection has changed, update layers
   useEffect(() => {
     if (!map) return;
-
-    setCuredInfections(countRecovered(rawInfectionData, selectedDate));
-    setCurrentInfections(countCurrent(rawInfectionData, selectedDate));
-    setAllInfections(countAll(rawInfectionData, selectedDate));
+    const { rawInfectionData } = coronaData;
+    const curedInfections = countRecovered(rawInfectionData, selectedDate);
+    const currentInfections = countCurrent(rawInfectionData, selectedDate);
+    const allInfections = countAll(rawInfectionData, selectedDate);
 
     // geodata types come from json files automatically so we bypass them for this step
     const hcdLayerData: any = hcdGeoData;
@@ -278,25 +271,16 @@ const Map: NextPage<Props> = ({
   const dateSliderChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     e.nativeEvent.preventDefault();
-    setSelectedDate(distinctDates[Number(e.currentTarget.value)]);
+    const d = distinctDates[Number(e.currentTarget.value)];
+    setSelectedDate(d);
   };
-
+  const sliderProps = { selectedDate, distinctDates, dateSliderChanged };
   return (
     <div>
       <div ref={el => (mapContainer.current = el)} style={mapStyle} />;
       <div style={sliderContainerStyle}>
         <p>{selectedDate}</p>
-        <input
-          type="range"
-          id="diseasedate"
-          name="diseasedate"
-          list="mapsettings"
-          min={0}
-          max={distinctDates.length - 1}
-          defaultValue={distinctDates.length - 1}
-          onChange={dateSliderChanged}
-        />
-        <SliderStyle />
+        <Slider {...sliderProps} />
       </div>
     </div>
   );
