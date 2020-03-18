@@ -4,16 +4,14 @@ import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
-import {
-  Corona
-} from "../interfaces/corona";
+import { Corona } from "../interfaces/corona";
 import hcdGeoData from "../sairaus/sairaanhoitopiiritgeocentroid.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
-import { countAll, countCurrent, countRecovered } from "../utils/coronaCountUtil";
+import { countAll, countCurrent, countRecovered } from "../utils/coronCounter";
+import { Loading } from "../components/Loading";
 
-
-if (typeof window !== 'undefined') {
-  import('../utils/analytics');  
+if (typeof window !== "undefined") {
+  import("../utils/analytics");
 }
 
 interface Props {
@@ -25,8 +23,8 @@ const IndexPage: NextPage<Props> = ({ data }) => {
   const current = countCurrent(data);
   const recovered = countRecovered(data);
 
-  const DynamicMap = dynamic(() => import("../components/Map"), {
-    loading: () => <p>Loading...</p>,
+  const DynamicMap = dynamic(() => import("../components/map/Map"), {
+    loading: () => <Loading />,
     ssr: false
   });
 
@@ -65,6 +63,5 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   };
 };
-
 
 export default IndexPage;
