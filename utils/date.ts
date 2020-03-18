@@ -13,7 +13,7 @@ export const extractDates = (coronaData: CoronaData) => {
   const recoveredDates = coronaData.rawInfectionData.recovered
     .map(c => new Date(c.date))
     .map(formatDate);
-    // trim duplicates
+  // trim duplicates
   const dates = [...new Set(...[confirmedDates, recoveredDates])].sort();
   return dates;
 };

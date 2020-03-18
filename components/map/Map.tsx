@@ -73,7 +73,7 @@ const Map: NextPage<Props> = ({
     lng: 26.43946362291001,
     zoom: 4.5
   });
-  
+
   // get dates for the slider
   const distinctDates = extractDates(coronaData);
 
@@ -96,7 +96,7 @@ const Map: NextPage<Props> = ({
   // ref used to hold the map
   const mapContainer = useRef<HTMLDivElement | null>(null);
 
-
+  // initial use-effect to load the map
   useEffect(() => {
     const initializeMap = () => {
       const map = new mapboxgl.Map({
