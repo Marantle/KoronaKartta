@@ -15,7 +15,7 @@ import {
 } from "../../utils/coronCounter";
 import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
-import { SliderStyle } from "./sliderstyle";
+import { SliderStyle } from "./SliderStyle";
 import { popupHtml } from "./popup";
 import { isDarkMode } from "../../utils/dark";
 
@@ -296,7 +296,7 @@ const Map: NextPage<Props> = ({
           defaultValue={distinctDates.length - 1}
           onChange={dateSliderChanged}
         />
-        <style jsx>{SliderStyle}</style>
+        <SliderStyle />
       </div>
     </div>
   );
