@@ -69,7 +69,9 @@ const Map: NextPage<Props> = ({
   const [mapState] = useState({
     lat: 64.55056046409041,
     lng: 26.43946362291001,
-    zoom: 4.5
+    zoom: 4.5,
+    minZoom: 4,
+    maxZoom: 6
   });
 
   // get dates for the slider
@@ -94,7 +96,9 @@ const Map: NextPage<Props> = ({
         container: mapContainer.current as any,
         style: colorScheme,
         center: [mapState.lng, mapState.lat],
-        zoom: mapState.zoom
+        zoom: mapState.zoom,
+        minZoom: mapState.minZoom,
+        maxZoom: mapState.maxZoom
       });
       map.on("load", () => {
         setMap(map);
