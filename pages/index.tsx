@@ -8,6 +8,7 @@ import { Corona } from "../interfaces/corona";
 import hcdGeoData from "../sairaus/sairaanhoitopiiritgeocentroid.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
 import { countAll, countCurrent, countRecovered } from "../utils/coronCounter";
+import { Loading } from "../components/Loading";
 
 if (typeof window !== "undefined") {
   import("../utils/analytics");
@@ -23,7 +24,7 @@ const IndexPage: NextPage<Props> = ({ data }) => {
   const recovered = countRecovered(data);
 
   const DynamicMap = dynamic(() => import("../components/map/Map"), {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Loading />,
     ssr: false
   });
 

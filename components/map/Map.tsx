@@ -17,6 +17,7 @@ import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
 import { SliderStyle } from "./sliderstyle";
 import { popupHtml } from "./popup";
+import { isDarkMode } from "../../utils/dark";
 
 // healthcaredistrict
 const hcdLayerId = "municipalities";
@@ -31,10 +32,7 @@ let textHalo = "rgba(255, 255, 255,0.7)";
 let fillOpacity = 0.6;
 let darkMode = false;
 
-if (
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-) {
+if (isDarkMode) {
   colorScheme = "mapbox://styles/markonen/ck7v43xa204p81ip70vkmi2l3";
   textColor = "rgb(255, 255, 255)";
   textHalo = "rgba(0, 0, 0,0.7)";
