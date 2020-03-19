@@ -15,14 +15,15 @@ const dateTail = "T23:59:59.000Z";
 export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
   const totals: Partial<HcdEventCount> = {};
   coronaData.confirmed.forEach((confirm: Confirmed) => {
+    const hcdName =
+      confirm.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
     if (time && confirm.date > time + dateTail) {
       return;
     }
-    if (totals.hasOwnProperty(confirm.healthCareDistrict)) {
-      totals[confirm.healthCareDistrict] =
-        totals[confirm.healthCareDistrict] + 1;
+    if (totals.hasOwnProperty(hcdName)) {
+      totals[hcdName] = totals[hcdName] + 1;
     } else {
-      totals[confirm.healthCareDistrict] = 1;
+      totals[hcdName] = 1;
     }
   });
   return totals as HcdEventCount;
@@ -34,12 +35,13 @@ export const countCurrent = (
 ) => {
   const totals: Partial<HcdEventCount> = countAll(coronaData, time);
   coronaData.recovered.forEach((recover: Recovered) => {
+    const hcdName =
+      recover.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
     if (time && recover.date > time + dateTail) {
       return;
     }
-    if (totals.hasOwnProperty(recover.healthCareDistrict)) {
-      totals[recover.healthCareDistrict] =
-        totals[recover.healthCareDistrict] - 1;
+    if (totals.hasOwnProperty(hcdName)) {
+      totals[hcdName] = totals[hcdName] - 1;
     }
   });
   return totals as HcdEventCount;
@@ -51,14 +53,15 @@ export const countRecovered = (
 ) => {
   const totals: Partial<HcdEventCount> = {};
   coronaData.recovered.forEach((recover: Recovered) => {
+    const hcdName =
+      recover.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
     if (time && recover.date > time + dateTail) {
       return;
     }
-    if (totals.hasOwnProperty(recover.healthCareDistrict)) {
-      totals[recover.healthCareDistrict] =
-        totals[recover.healthCareDistrict] + 1;
+    if (totals.hasOwnProperty(hcdName)) {
+      totals[hcdName] = totals[hcdName] + 1;
     } else {
-      totals[recover.healthCareDistrict] = 1;
+      totals[hcdName] = 1;
     }
   });
   return totals as HcdEventCount;

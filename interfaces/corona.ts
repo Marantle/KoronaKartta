@@ -24,7 +24,8 @@ export type HealthCareDistrictName =
   | "Päijät-Häme"
   | "Satakunta"
   | "Vaasa"
-  | "Varsinais-Suomi";
+  | "Varsinais-Suomi"
+  | "Sairaanhoitopiiri ei tiedossa";
 
 export interface Confirmed {
   id: string;
