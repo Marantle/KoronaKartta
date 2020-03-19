@@ -10,6 +10,16 @@
     {
       "type": "Feature",
       "properties": {
+        "healthCareDistrict": "Ahvenanmaa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [19.884567260742188, 60.23435742267943]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "healthCareDistrict": "Etelä-Karjala"
       },
       "geometry": {

@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import { Corona } from "../interfaces/corona";
-import hcdGeoData from "../sairaus/sairaanhoitopiiritgeocentroid.json";
+import hcdGeoData from "../sairaus/simplehcdgeo.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
 import { countAll, countCurrent, countRecovered } from "../utils/coronCounter";
 import { Loading } from "../components/Loading";
