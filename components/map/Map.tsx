@@ -263,29 +263,18 @@ const Map: NextPage<Props> = ({
     (map.getSource(symbolLayerId) as GeoJSONSource).setData(symbolLayerData);
   }, [selectedDate]);
 
-  // position the slider at bottom of the screen
-  const sliderContainerStyle: CSS.Properties = {
-    zIndex: 1000,
-    position: "absolute",
-    left: "10%",
-    right: "10%",
-    bottom: "1%"
-  };
-
   const dateSliderChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     e.nativeEvent.preventDefault();
     const d = distinctDates[Number(e.currentTarget.value)];
     setSelectedDate(d);
   };
+
   const sliderProps = { selectedDate, distinctDates, dateSliderChanged };
   return (
     <div>
       <div ref={el => (mapContainer.current = el)} style={mapStyle} />;
-      <div style={sliderContainerStyle}>
-        <p>{selectedDate}</p>
-        <Slider {...sliderProps} />
-      </div>
+      <Slider {...sliderProps} />
     </div>
   );
 };
