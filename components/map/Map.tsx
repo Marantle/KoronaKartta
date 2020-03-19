@@ -98,7 +98,8 @@ const Map: NextPage<Props> = ({
         center: [mapState.lng, mapState.lat],
         zoom: mapState.zoom,
         minZoom: mapState.minZoom,
-        maxZoom: mapState.maxZoom
+        maxZoom: mapState.maxZoom,
+        fadeDuration: 0
       });
       map.on("load", () => {
         setMap(map);
