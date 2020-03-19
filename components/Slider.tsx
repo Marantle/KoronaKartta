@@ -79,6 +79,7 @@ export const Slider = ({
         border-color: transparent;
         color: transparent;
       }
+
       /* Special styling for WebKit/Blink */
       input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -113,6 +114,7 @@ export const Slider = ({
         background: #ffffff;
         cursor: pointer;
       }
+
       input[type="range"]::-webkit-slider-runnable-track {
         width: 100%;
         height: 8.4px;
