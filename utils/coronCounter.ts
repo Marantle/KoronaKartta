@@ -31,28 +31,45 @@ export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
 
 export const countCurrent = (
   coronaData: Corona,
-  time: string = "2022-01-28"
+  time: string = "2022-01-28",
+  totalConfirmed: Partial<HcdEventCount>
 ) => {
-  const totals: Partial<HcdEventCount> = countAll(coronaData, time);
-  coronaData.recovered.forEach((recover: Recovered) => {
+  const current: Partial<HcdEventCount> = { ...totalConfirmed };
+  const { recovered, deaths } = coronaData;
+  [...recovered, ...deaths].forEach((recover: Recovered) => {
     const hcdName =
       recover.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
     if (time && recover.date > time + dateTail) {
       return;
     }
-    if (totals.hasOwnProperty(hcdName)) {
-      totals[hcdName] = totals[hcdName] - 1;
+    if (current.hasOwnProperty(hcdName)) {
+      current[hcdName] = current[hcdName] - 1;
     }
   });
-  return totals as HcdEventCount;
+  return current as HcdEventCount;
 };
 
 export const countRecovered = (
   coronaData: Corona,
   time: string = "2022-01-28"
 ) => {
+  return countDeathsOrRecovered(coronaData, time, "recovered");
+};
+
+export const countDeaths = (
+  coronaData: Corona,
+  time: string = "2022-01-28"
+) => {
+  return countDeathsOrRecovered(coronaData, time, "deaths");
+};
+
+const countDeathsOrRecovered = (
+  coronaData: Corona,
+  time: string = "2022-01-28",
+  key: "recovered" | "deaths"
+) => {
   const totals: Partial<HcdEventCount> = {};
-  coronaData.recovered.forEach((recover: Recovered) => {
+  coronaData[key].forEach((recover: Recovered) => {
     const hcdName =
       recover.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
     if (time && recover.date > time + dateTail) {
@@ -73,18 +90,21 @@ export const addInfectionCountsToFeature = (
     curedInfections: HcdEventCount;
     currentInfections: HcdEventCount;
     allInfections: HcdEventCount;
+    deaths: HcdEventCount;
   }
 ) => {
-  const { curedInfections, currentInfections, allInfections } = counts;
+  const { curedInfections, currentInfections, allInfections, deaths } = counts;
   const hcdName = feature.properties
     .healthCareDistrict as HealthCareDistrictName;
   feature.properties.currentInfections = currentInfections[hcdName] ?? 0;
   feature.properties.curedInfections = curedInfections[hcdName] ?? 0;
   feature.properties.allInfections = allInfections[hcdName] ?? 0;
+  feature.properties.deaths = deaths[hcdName] ?? 0;
 };
 
 export const deleteInfectionCountsInFeature = (feature: Feature) => {
   delete feature.properties.currentInfections;
   delete feature.properties.curedInfections;
   delete feature.properties.allInfections;
+  delete feature.properties.deaths;
 };

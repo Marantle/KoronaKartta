@@ -1,6 +1,6 @@
 export interface Corona {
   confirmed: Confirmed[];
-  deaths: any[];
+  deaths: Death[];
   recovered: Recovered[];
 }
 
@@ -25,6 +25,7 @@ export type HealthCareDistrictName =
   | "Satakunta"
   | "Vaasa"
   | "Varsinais-Suomi"
+  | "Ahvenanmaa"
   | "Sairaanhoitopiiri ei tiedossa";
 
 export interface Confirmed {
@@ -52,6 +53,11 @@ export enum InfectionSourceCountry {
 }
 
 export interface Recovered {
+  id: number | string;
+  date: string;
+  healthCareDistrict: HealthCareDistrict;
+}
+export interface Death {
   id: number | string;
   date: string;
   healthCareDistrict: HealthCareDistrict;

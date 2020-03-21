@@ -11,7 +11,8 @@ import {
   countCurrent,
   countAll,
   addInfectionCountsToFeature,
-  deleteInfectionCountsInFeature
+  deleteInfectionCountsInFeature,
+  countDeaths
 } from "../../utils/coronCounter";
 import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
@@ -52,7 +53,8 @@ export interface CoronaData {
   rawInfectionData: Corona;
   allInfections: HcdEventCount;
   currentInfections: HcdEventCount;
-  curedInfections: HcdEventCount;
+  recovered: HcdEventCount;
+  deaths: HcdEventCount;
 }
 
 interface Props {
@@ -90,7 +92,12 @@ const Map: NextPage<Props> = ({
 
   // initial use-effect to load the map
   useEffect(() => {
-    const { allInfections, currentInfections, curedInfections } = coronaData;
+    const {
+      allInfections,
+      currentInfections,
+      recovered: curedInfections,
+      deaths
+    } = coronaData;
     const initializeMap = () => {
       const map = new mapboxgl.Map({
         container: mapContainer.current as any,
@@ -112,14 +119,16 @@ const Map: NextPage<Props> = ({
           addInfectionCountsToFeature(f, {
             curedInfections,
             currentInfections,
-            allInfections
+            allInfections,
+            deaths
           })
         );
         centroidsWithInfectionCounts.features.forEach((f: any) =>
           addInfectionCountsToFeature(f, {
             curedInfections,
             currentInfections,
-            allInfections
+            allInfections,
+            deaths
           })
         );
 
@@ -234,9 +243,14 @@ const Map: NextPage<Props> = ({
   useEffect(() => {
     if (!map) return;
     const { rawInfectionData } = coronaData;
-    const curedInfections = countRecovered(rawInfectionData, selectedDate);
-    const currentInfections = countCurrent(rawInfectionData, selectedDate);
     const allInfections = countAll(rawInfectionData, selectedDate);
+    const currentInfections = countCurrent(
+      rawInfectionData,
+      selectedDate,
+      allInfections
+    );
+    const curedInfections = countRecovered(rawInfectionData, selectedDate);
+    const deaths = countDeaths(rawInfectionData, selectedDate);
 
     // geodata types come from json files automatically so we bypass them for this step
     const hcdLayerData: any = hcdGeoData;
@@ -247,7 +261,8 @@ const Map: NextPage<Props> = ({
       addInfectionCountsToFeature(f, {
         curedInfections,
         currentInfections,
-        allInfections
+        allInfections,
+        deaths
       })
     );
 
@@ -256,7 +271,8 @@ const Map: NextPage<Props> = ({
       addInfectionCountsToFeature(f, {
         curedInfections,
         currentInfections,
-        allInfections
+        allInfections,
+        deaths
       })
     );
 

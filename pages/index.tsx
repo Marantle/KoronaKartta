@@ -7,7 +7,12 @@ import { GetStaticProps } from "next";
 import { Corona } from "../interfaces/corona";
 import hcdGeoData from "../sairaus/simplehcdgeo.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
-import { countAll, countCurrent, countRecovered } from "../utils/coronCounter";
+import {
+  countAll,
+  countCurrent,
+  countRecovered,
+  countDeaths
+} from "../utils/coronCounter";
 import { Loading } from "../components/Loading";
 
 if (typeof window !== "undefined") {
@@ -19,9 +24,10 @@ interface Props {
 }
 
 const IndexPage: NextPage<Props> = ({ data }) => {
-  const all = countAll(data);
-  const current = countCurrent(data);
+  const allInfections = countAll(data);
+  const currentInfections = countCurrent(data, null, allInfections);
   const recovered = countRecovered(data);
+  const deaths = countDeaths(data);
 
   const DynamicMap = dynamic(() => import("../components/map/Map"), {
     loading: () => <Loading />,
@@ -35,9 +41,10 @@ const IndexPage: NextPage<Props> = ({ data }) => {
         hcdCentroidGeoData={hcdCentroiGeoData}
         coronaData={{
           rawInfectionData: data,
-          allInfections: all,
-          currentInfections: current,
-          curedInfections: recovered
+          allInfections: allInfections,
+          currentInfections: currentInfections,
+          recovered,
+          deaths
         }}
       />
       <div>

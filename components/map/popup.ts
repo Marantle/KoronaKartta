@@ -4,7 +4,8 @@ export const popupHtml = ({
   healthCareDistrict,
   allInfections,
   currentInfections,
-  curedInfections
+  curedInfections,
+  deaths
 }: FeatureProperties) => {
   const s = "border-bottom: 1px solid #ddd;";
   const ss = "text-align:right;";
@@ -19,16 +20,20 @@ export const popupHtml = ({
       </thead>
       <tbody>
           <tr>
-              <td style="${s}">Tartuntoja havaittu: </td>
+              <td style="${s}">Tartuntoja kaikkiaan: </td>
               <td style="${s + ss}">${allInfections}</td>
               </tr>
           <tr>
-              <td style="${s}">Kipeiden määrä: </td>
+              <td style="${s}">Sairaita: </td>
               <td style="${s + ss}">${currentInfections}</td>
           </tr>
           <tr>
-              <td style="${s}">Parantuneet: </td>
+              <td style="${s}">Parantuneita: </td>
               <td style="${s + ss}">${curedInfections}</td>
+          </tr>
+          <tr>
+              <td style="${s}">Menehtyneitä: </td>
+              <td style="${s + ss}">${deaths}</td>
           </tr>
       </tbody>
   </table>
