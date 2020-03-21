@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NextPage } from "next";
-import mapboxgl, { GeoJSONSource } from "mapbox-gl";
+import mapboxgl, { GeoJSONSource, Marker } from "mapbox-gl";
 import CSS from "csstype";
 import { HCD, HCDCentroid, CountPositions } from "../../interfaces/json";
 import { Corona, Feature } from "../../interfaces/corona";
@@ -86,7 +86,7 @@ const Map: NextPage<Props> = ({
   const [selectedDate, setSelectedDate] = useState(
     distinctDates[distinctDates.length - 1]
   );
-
+  const [marker, setMarker] = useState<Marker>(null);
   const [map, setMap] = useState<mapboxgl.Map>();
   // end state
 
@@ -120,10 +120,6 @@ const Map: NextPage<Props> = ({
         curedInfections
       );
       countPositionsGeo.features[3].properties.count = sumValues(deaths);
-      console.log(
-        "got em deaths",
-        countPositionsGeo.features[3].properties.count
-      );
 
       map.on("load", () => {
         setMap(map);
@@ -219,65 +215,16 @@ const Map: NextPage<Props> = ({
           deceasedPoint
         ] = features;
 
-        const container = document.createElement("div");
-        container.className = "container";
-        const marker1Container = document.createElement("div");
-        marker1Container.className = "marker-container";
-        const marker1Img = document.createElement("img");
-        marker1Img.className = "marker";
-        const marker1Txt = document.createElement("h1");
-        marker1Txt.className = "marker-text";
-        marker1Img.src = allPoint.properties.type;
-        marker1Txt.innerText = String(currentPoint.properties.count);
+        const container = newFunction(
+          allPoint,
+          currentPoint,
+          recoveredPoint,
+          deceasedPoint
+        );
 
-        const marker2Container = document.createElement("div");
-        marker2Container.className = "marker-container";
-        const marker2Img = document.createElement("img");
-        marker2Img.className = "marker";
-        const marker2Txt = document.createElement("h1");
-        marker2Txt.className = "marker-text";
-        marker2Img.src = currentPoint.properties.type;
-        marker2Txt.innerText = String(currentPoint.properties.count);
-
-        const marker3Container = document.createElement("div");
-        marker3Container.className = "marker-container";
-        const marker3Img = document.createElement("img");
-        marker3Img.className = "marker";
-        const marker3Txt = document.createElement("h1");
-        marker3Txt.className = "marker-text";
-        marker3Img.src = recoveredPoint.properties.type;
-        marker3Txt.innerText = String(recoveredPoint.properties.count);
-
-        const marker4Container = document.createElement("div");
-        marker4Container.className = "marker-container";
-        const marker4Img = document.createElement("img");
-        marker4Img.className = "marker";
-        const marker4Txt = document.createElement("h1");
-        marker4Txt.className = "marker-text";
-        marker4Img.src = deceasedPoint.properties.type;
-        marker4Txt.innerText = String(deceasedPoint.properties.count);
-
-        marker1Container.appendChild(marker1Img);
-        marker1Container.appendChild(marker1Txt);
-        container.appendChild(marker1Container);
-        marker4Txt.className = "marker-text";
-
-        marker2Container.appendChild(marker2Img);
-        marker2Container.appendChild(marker2Txt);
-        container.appendChild(marker2Container);
-        marker4Txt.className = "marker-text";
-
-        marker3Container.appendChild(marker3Img);
-        marker3Container.appendChild(marker3Txt);
-        container.appendChild(marker3Container);
-        marker4Txt.className = "marker-text";
-
-        marker4Container.appendChild(marker4Img);
-        marker4Container.appendChild(marker4Txt);
-        container.appendChild(marker4Container);
-
-        console.log(container.childNodes);
-        new mapboxgl.Marker(container)
+        const marker = new mapboxgl.Marker(container);
+        setMarker(marker);
+        marker
           .setLngLat(allPoint.geometry.coordinates as [number, number])
           .addTo(map);
 
@@ -391,6 +338,31 @@ const Map: NextPage<Props> = ({
 
     (map.getSource(hcdLayerId) as GeoJSONSource).setData(hcdLayerData);
     (map.getSource(symbolLayerId) as GeoJSONSource).setData(symbolLayerData);
+
+    countPositionsGeo.features[0].properties.count = sumValues(allInfections);
+    countPositionsGeo.features[1].properties.count = sumValues(
+      currentInfections
+    );
+    countPositionsGeo.features[2].properties.count = sumValues(curedInfections);
+    countPositionsGeo.features[3].properties.count = sumValues(deaths);
+
+    const { features } = countPositionsGeo;
+
+    const [allPoint, currentPoint, recoveredPoint, deceasedPoint] = features;
+
+    const container = newFunction(
+      allPoint,
+      currentPoint,
+      recoveredPoint,
+      deceasedPoint
+    );
+    marker.remove();
+    const newMarker = new mapboxgl.Marker(container);
+
+    newMarker
+      .setLngLat(allPoint.geometry.coordinates as [number, number])
+      .addTo(map);
+    setMarker(newMarker);
   }, [selectedDate]);
 
   const dateSliderChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -408,5 +380,79 @@ const Map: NextPage<Props> = ({
     </div>
   );
 };
+
+function newFunction(
+  allPoint: {
+    type: string;
+    properties: { type: string; count: number };
+    geometry: { type: string; coordinates: number[] };
+  },
+  currentPoint: {
+    type: string;
+    properties: { type: string; count: number };
+    geometry: { type: string; coordinates: number[] };
+  },
+  recoveredPoint: {
+    type: string;
+    properties: { type: string; count: number };
+    geometry: { type: string; coordinates: number[] };
+  },
+  deceasedPoint: {
+    type: string;
+    properties: { type: string; count: number };
+    geometry: { type: string; coordinates: number[] };
+  }
+) {
+  const container = document.createElement("div");
+  container.className = "container";
+  const marker1Container = document.createElement("div");
+  marker1Container.className = "marker-container";
+  const marker1Img = document.createElement("img");
+  marker1Img.className = "marker";
+  const marker1Txt = document.createElement("h1");
+  marker1Txt.className = "marker-text";
+  marker1Img.src = allPoint.properties.type;
+  marker1Txt.innerText = String(currentPoint.properties.count);
+  const marker2Container = document.createElement("div");
+  marker2Container.className = "marker-container";
+  const marker2Img = document.createElement("img");
+  marker2Img.className = "marker";
+  const marker2Txt = document.createElement("h1");
+  marker2Txt.className = "marker-text";
+  marker2Img.src = currentPoint.properties.type;
+  marker2Txt.innerText = String(currentPoint.properties.count);
+  const marker3Container = document.createElement("div");
+  marker3Container.className = "marker-container";
+  const marker3Img = document.createElement("img");
+  marker3Img.className = "marker";
+  const marker3Txt = document.createElement("h1");
+  marker3Txt.className = "marker-text";
+  marker3Img.src = recoveredPoint.properties.type;
+  marker3Txt.innerText = String(recoveredPoint.properties.count);
+  const marker4Container = document.createElement("div");
+  marker4Container.className = "marker-container";
+  const marker4Img = document.createElement("img");
+  marker4Img.className = "marker";
+  const marker4Txt = document.createElement("h1");
+  marker4Txt.className = "marker-text";
+  marker4Img.src = deceasedPoint.properties.type;
+  marker4Txt.innerText = String(deceasedPoint.properties.count);
+  marker1Container.appendChild(marker1Img);
+  marker1Container.appendChild(marker1Txt);
+  container.appendChild(marker1Container);
+  marker4Txt.className = "marker-text";
+  marker2Container.appendChild(marker2Img);
+  marker2Container.appendChild(marker2Txt);
+  container.appendChild(marker2Container);
+  marker4Txt.className = "marker-text";
+  marker3Container.appendChild(marker3Img);
+  marker3Container.appendChild(marker3Txt);
+  container.appendChild(marker3Container);
+  marker4Txt.className = "marker-text";
+  marker4Container.appendChild(marker4Img);
+  marker4Container.appendChild(marker4Txt);
+  container.appendChild(marker4Container);
+  return container;
+}
 
 export default Map;
