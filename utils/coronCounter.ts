@@ -108,3 +108,7 @@ export const deleteInfectionCountsInFeature = (feature: Feature) => {
   delete feature.properties.allInfections;
   delete feature.properties.deaths;
 };
+
+export const sumValues = (data: HcdEventCount) => {
+  return Object.values(data).reduce((a, c) => a + c, 0);
+};

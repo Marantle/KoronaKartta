@@ -29,3 +29,24 @@ th {
   bottom: 0;
   width: 100%;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.marker-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 200px;
+}
+
+.marker-text {
+  color: white;
+  width: 50px;
+  text-align: right;
+}
+.marker {
+  height: 50px;
+  width: 50px;
+}

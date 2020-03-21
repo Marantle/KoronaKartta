@@ -7,6 +7,7 @@ import { GetStaticProps } from "next";
 import { Corona } from "../interfaces/corona";
 import hcdGeoData from "../sairaus/simplehcdgeo.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
+import countPositionsGeo from "../sairaus/totalPositions.json";
 import {
   countAll,
   countCurrent,
@@ -46,6 +47,7 @@ const IndexPage: NextPage<Props> = ({ data }) => {
           recovered,
           deaths
         }}
+        countPositionsGeo={countPositionsGeo}
       />
       <div>
         <a href="https://github.com/Marantle/KoronaKartta">
