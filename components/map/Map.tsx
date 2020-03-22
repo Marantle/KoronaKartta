@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import mapboxgl, { GeoJSONSource, Marker } from "mapbox-gl";
 import CSS from "csstype";
 import { HCD, HCDCentroid, CountPositions } from "../../interfaces/json";
-import { Corona, Feature } from "../../interfaces/corona";
+import { Corona, Feature, Point } from "../../interfaces/corona";
 
 import {
   HcdEventCount,
@@ -20,6 +20,7 @@ import { extractDates } from "../../utils/date";
 import { popupHtml } from "./popup";
 import { isDarkMode } from "../../utils/dark";
 import { Slider } from "../Slider";
+import makeMarkerElement from "./makeMarkerElement";
 
 // healthcaredistrict
 const hcdLayerId = "municipalities";
@@ -215,11 +216,11 @@ const Map: NextPage<Props> = ({
           deceasedPoint
         ] = features;
 
-        const container = newFunction(
-          allPoint,
-          currentPoint,
-          recoveredPoint,
-          deceasedPoint
+        const container = makeMarkerElement(
+          allPoint as Point,
+          currentPoint as Point,
+          recoveredPoint as Point,
+          deceasedPoint as Point
         );
 
         const marker = new mapboxgl.Marker(container);
@@ -350,11 +351,11 @@ const Map: NextPage<Props> = ({
 
     const [allPoint, currentPoint, recoveredPoint, deceasedPoint] = features;
 
-    const container = newFunction(
-      allPoint,
-      currentPoint,
-      recoveredPoint,
-      deceasedPoint
+    const container = makeMarkerElement(
+      allPoint as Point,
+      currentPoint as Point,
+      recoveredPoint as Point,
+      deceasedPoint as Point
     );
     marker.remove();
     const newMarker = new mapboxgl.Marker(container);
@@ -380,79 +381,5 @@ const Map: NextPage<Props> = ({
     </div>
   );
 };
-
-function newFunction(
-  allPoint: {
-    type: string;
-    properties: { type: string; count: number };
-    geometry: { type: string; coordinates: number[] };
-  },
-  currentPoint: {
-    type: string;
-    properties: { type: string; count: number };
-    geometry: { type: string; coordinates: number[] };
-  },
-  recoveredPoint: {
-    type: string;
-    properties: { type: string; count: number };
-    geometry: { type: string; coordinates: number[] };
-  },
-  deceasedPoint: {
-    type: string;
-    properties: { type: string; count: number };
-    geometry: { type: string; coordinates: number[] };
-  }
-) {
-  const container = document.createElement("div");
-  container.className = "container";
-  const marker1Container = document.createElement("div");
-  marker1Container.className = "marker-container";
-  const marker1Img = document.createElement("img");
-  marker1Img.className = "marker";
-  const marker1Txt = document.createElement("h1");
-  marker1Txt.className = "marker-text";
-  marker1Img.src = allPoint.properties.type;
-  marker1Txt.innerText = String(currentPoint.properties.count);
-  const marker2Container = document.createElement("div");
-  marker2Container.className = "marker-container";
-  const marker2Img = document.createElement("img");
-  marker2Img.className = "marker";
-  const marker2Txt = document.createElement("h1");
-  marker2Txt.className = "marker-text";
-  marker2Img.src = currentPoint.properties.type;
-  marker2Txt.innerText = String(currentPoint.properties.count);
-  const marker3Container = document.createElement("div");
-  marker3Container.className = "marker-container";
-  const marker3Img = document.createElement("img");
-  marker3Img.className = "marker";
-  const marker3Txt = document.createElement("h1");
-  marker3Txt.className = "marker-text";
-  marker3Img.src = recoveredPoint.properties.type;
-  marker3Txt.innerText = String(recoveredPoint.properties.count);
-  const marker4Container = document.createElement("div");
-  marker4Container.className = "marker-container";
-  const marker4Img = document.createElement("img");
-  marker4Img.className = "marker";
-  const marker4Txt = document.createElement("h1");
-  marker4Txt.className = "marker-text";
-  marker4Img.src = deceasedPoint.properties.type;
-  marker4Txt.innerText = String(deceasedPoint.properties.count);
-  marker1Container.appendChild(marker1Img);
-  marker1Container.appendChild(marker1Txt);
-  container.appendChild(marker1Container);
-  marker4Txt.className = "marker-text";
-  marker2Container.appendChild(marker2Img);
-  marker2Container.appendChild(marker2Txt);
-  container.appendChild(marker2Container);
-  marker4Txt.className = "marker-text";
-  marker3Container.appendChild(marker3Img);
-  marker3Container.appendChild(marker3Txt);
-  container.appendChild(marker3Container);
-  marker4Txt.className = "marker-text";
-  marker4Container.appendChild(marker4Img);
-  marker4Container.appendChild(marker4Txt);
-  container.appendChild(marker4Container);
-  return container;
-}
 
 export default Map;

@@ -70,17 +70,25 @@ export enum HealthCareDistrict {
 }
 
 export interface Feature {
-  type: FeatureType;
+  type: "Feature";
   properties: FeatureProperties;
   geometry: Geometry;
 }
 
-export enum FeatureType {
-  Feature = "Feature"
+export interface Point {
+  type: "Point";
+  properties: FeatureProperties;
+  geometry: PointGeometry;
 }
+
 export interface Geometry {
   type: GeometryType;
   coordinates: Array<Array<Array<number[] | number>>>;
+}
+
+export interface PointGeometry {
+  type: GeometryType;
+  coordinates: number[];
 }
 
 export enum GeometryType {
@@ -89,13 +97,5 @@ export enum GeometryType {
 }
 
 export interface FeatureProperties {
-  GML_ID: number;
-  NATCODE: string;
-  NAMEFIN: string;
-  NAMESWE: string;
-  LANDAREA: number;
-  FRESHWAREA: number;
-  SEAWAREA: number;
-  TOTALAREA: number;
   [key: string]: string | number;
 }
