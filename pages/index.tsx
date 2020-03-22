@@ -81,8 +81,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const data: Corona = await coronaData.json();
 
-  console.log(`Server fetched this many confirmed: ${data.confirmed.length}`);
-
   return {
     props: {
       data

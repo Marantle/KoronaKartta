@@ -24,6 +24,5 @@ export default (
     markerContainer.appendChild(markerTxt);
     container.appendChild(markerContainer);
   });
-  console.log(container);
   return container;
 };
