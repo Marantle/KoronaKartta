@@ -1,0 +1,3 @@
+https://koronakartta.info/sitemap.xml
+User-agent: *
+Disallow
