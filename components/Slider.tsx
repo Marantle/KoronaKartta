@@ -33,6 +33,14 @@ export const Slider = ({
       onChange={dateSliderChanged}
     />
     <style jsx>{`
+      div {
+        pointer-events: none;
+      }
+
+      div > input {
+        pointer-events: auto;
+      }
+
       p {
         font-family: "Roboto", sans-serif;
         font-size: 2em;
@@ -40,11 +48,9 @@ export const Slider = ({
         display: block;
         text-align: center;
         line-height: 150%;
-      }
-
-      p {
         margin-bottom: 5px;
       }
+
       @media (prefers-color-scheme: dark) {
         label,
         p {
