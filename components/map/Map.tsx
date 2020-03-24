@@ -39,7 +39,7 @@ if (isDarkMode) {
   colorScheme = "mapbox://styles/markonen/ck7v43xa204p81ip70vkmi2l3";
   textColor = "rgb(255, 255, 255)";
   textHalo = "rgba(0, 0, 0,0.7)";
-  fillOpacity = 0.4;
+  fillOpacity = 0.3;
   darkMode = true;
 }
 
@@ -185,7 +185,17 @@ const Map: NextPage<Props> = ({
               500,
               "#000000"
             ],
-            "fill-opacity": fillOpacity
+            "fill-opacity": [
+              "interpolate",
+              ["linear"],
+              ["get", "currentInfections"],
+              0,
+              fillOpacity,
+              250,
+              fillOpacity,
+              500,
+              1
+            ]
           }
         });
         map.addLayer({
