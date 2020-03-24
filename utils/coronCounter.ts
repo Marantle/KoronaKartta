@@ -11,12 +11,12 @@ export type HcdEventCount = {
 };
 
 const dateTail = "T23:59:59.000Z";
+const unknownHcd = "Sairaanhoitopiiri ei tiedossa";
 
 export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
   const totals: Partial<HcdEventCount> = {};
   coronaData.confirmed.forEach((confirm: Confirmed) => {
-    const hcdName =
-      confirm.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
+    const hcdName = confirm.healthCareDistrict ?? unknownHcd;
     if (time && confirm.date > time + dateTail) {
       return;
     }
@@ -37,8 +37,7 @@ export const countCurrent = (
   const current: Partial<HcdEventCount> = { ...totalConfirmed };
   const { recovered, deaths } = coronaData;
   [...recovered, ...deaths].forEach((recover: Recovered) => {
-    const hcdName =
-      recover.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
+    const hcdName = recover.healthCareDistrict ?? unknownHcd;
     if (time && recover.date > time + dateTail) {
       return;
     }
@@ -70,8 +69,7 @@ const countDeathsOrRecovered = (
 ) => {
   const totals: Partial<HcdEventCount> = {};
   coronaData[key].forEach((recover: Recovered) => {
-    const hcdName =
-      recover.healthCareDistrict ?? "Sairaanhoitopiiri ei tiedossa";
+    const hcdName = recover.healthCareDistrict ?? unknownHcd;
     if (time && recover.date > time + dateTail) {
       return;
     }
