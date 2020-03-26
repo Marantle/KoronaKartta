@@ -81,7 +81,7 @@ const Map: NextPage<Props> = ({
   const [mapState] = useState({
     lat: 64.55056046409041,
     lng: 26.43946362291001,
-    zoom: 4.5,
+    zoom: 4,
     minZoom: 4,
     maxZoom: 6
   });
@@ -245,7 +245,8 @@ const Map: NextPage<Props> = ({
 
         const popup = new mapboxgl.Popup({
           closeButton: false,
-          closeOnClick: false
+          closeOnClick: false,
+          className: "kartta-popup"
         });
 
         map.on("click", hcdLayerId, function(e) {

@@ -7,33 +7,32 @@ export const popupHtml = ({
   curedInfections,
   deaths
 }: FeatureProperties) => {
-  const s = "border-bottom: 1px solid #ddd;";
-  const ss = "text-align:right;";
-  const sss = "text-align:center;";
+  const header = "padding-bottom: 15px;";
+  const ss = "padding-left: 10px; text-align:right;";
   return `
-  <table>
+  <table class="popuptable">
   
       <thead>
         <tr>
-            <th colspan="2"style="${s + sss}">${healthCareDistrict}</th>
+            <th colspan="2"style="${header}">${healthCareDistrict}</th>
         </tr>
       </thead>
       <tbody>
           <tr>
-              <td style="${s}">Sairaita: </td>
-              <td style="${s + ss}">${currentInfections}</td>
+              <td>Sairaita </td>
+              <td style="${ss}">${currentInfections}</td>
           </tr>
           <tr>
-              <td style="${s}">Parantuneita: </td>
-              <td style="${s + ss}">${curedInfections}</td>
+              <td>Parantuneita </td>
+              <td style="${ss}">${curedInfections}</td>
           </tr>
           <tr>
-              <td style="${s}">Menehtyneitä: </td>
-              <td style="${s + ss}">${deaths}</td>
+              <td>Menehtyneitä </td>
+              <td style="${ss}">${deaths}</td>
           </tr>
-          <tr>
-              <td style="${s}">Tartuntoja kaikkiaan: </td>
-              <td style="${s + ss}">${allInfections}</td>
+          <tr style="font-weight: bold;">
+              <td>Tartuntoja kaikkiaan </td>
+              <td style="${ss}">${allInfections}</td>
           </tr>
       </tbody>
   </table>

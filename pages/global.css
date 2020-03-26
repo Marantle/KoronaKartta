@@ -23,6 +23,19 @@ th {
   font-size: 1.4em;
 }
 
+@media (prefers-color-scheme: dark) {
+  .popuptable {
+    color: white;
+    background-color: black;
+  }
+  .kartta-popup .mapboxgl-popup-content {
+    background-color: black;
+  }
+  .kartta-popup .mapboxgl-popup-tip {
+    border-top-color: black;
+  }
+}
+
 #map {
   position: absolute;
   top: 0;

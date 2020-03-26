@@ -66,7 +66,7 @@ export default (totalCounts: TotalCounts) => (
         <td style={rowTitleStyle}>Menehtyneitä</td>
         <td style={rowStyle}>{totalCounts.deceased}</td>
       </tr>
-      <tr>
+      <tr style={{ fontWeight: "bold" }}>
         <td style={rowTitleStyle}>Tartuntoja kaikkiaan</td>
         <td style={rowStyle}>{totalCounts.allInfections}</td>
       </tr>
