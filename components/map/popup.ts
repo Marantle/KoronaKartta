@@ -20,10 +20,6 @@ export const popupHtml = ({
       </thead>
       <tbody>
           <tr>
-              <td style="${s}">Tartuntoja kaikkiaan: </td>
-              <td style="${s + ss}">${allInfections}</td>
-              </tr>
-          <tr>
               <td style="${s}">Sairaita: </td>
               <td style="${s + ss}">${currentInfections}</td>
           </tr>
@@ -34,6 +30,10 @@ export const popupHtml = ({
           <tr>
               <td style="${s}">Menehtyneitä: </td>
               <td style="${s + ss}">${deaths}</td>
+          </tr>
+          <tr>
+              <td style="${s}">Tartuntoja kaikkiaan: </td>
+              <td style="${s + ss}">${allInfections}</td>
           </tr>
       </tbody>
   </table>

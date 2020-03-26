@@ -34,6 +34,7 @@ th {
   display: flex;
   flex-direction: column;
 }
+
 .marker-container {
   display: flex;
   flex-direction: row;
@@ -42,6 +43,7 @@ th {
 }
 
 .marker-text {
+  font-size: 2em;
   width: 60px;
   text-align: right;
 }
@@ -49,7 +51,8 @@ th {
 @media (prefers-color-scheme: dark) {
   .marker-text {
     color: white;
-    -webkit-text-stroke-width: 0.5px;
+    font-size: 28px;
+    -webkit-text-stroke-width: 0.3px;
     -webkit-text-stroke-color: black;
   }
 }

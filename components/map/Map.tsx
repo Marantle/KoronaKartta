@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NextPage } from "next";
-import mapboxgl, { GeoJSONSource, Marker } from "mapbox-gl";
+import mapboxgl, { GeoJSONSource } from "mapbox-gl";
 import CSS from "csstype";
 import { HCD, HCDCentroid, CountPositions } from "../../interfaces/json";
-import { Corona, Feature, Point } from "../../interfaces/corona";
+import { Corona, Feature } from "../../interfaces/corona";
 
 import {
   HcdEventCount,
@@ -20,7 +20,7 @@ import { extractDates } from "../../utils/date";
 import { popupHtml } from "./popup";
 import { isDarkMode } from "../../utils/dark";
 import { Slider } from "../Slider";
-import makeMarkerElement from "./makeMarkerElement";
+import TotalCounter from "../TotalCounter";
 
 // healthcaredistrict
 const hcdLayerId = "municipalities";
@@ -59,6 +59,13 @@ export interface CoronaData {
   deaths: HcdEventCount;
 }
 
+export interface TotalCounts {
+  allInfections: number;
+  currentInfections: number;
+  curedInfections: number;
+  deceased: number;
+}
+
 interface Props {
   hcdGeoData: HCD;
   hcdCentroidGeoData: HCDCentroid;
@@ -69,7 +76,6 @@ interface Props {
 const Map: NextPage<Props> = ({
   hcdGeoData,
   hcdCentroidGeoData,
-  countPositionsGeo,
   coronaData
 }) => {
   const [mapState] = useState({
@@ -87,7 +93,7 @@ const Map: NextPage<Props> = ({
   const [selectedDate, setSelectedDate] = useState(
     distinctDates[distinctDates.length - 1]
   );
-  const [marker, setMarker] = useState<Marker>(null);
+  const [totalCounts, setTotalCounts] = useState<TotalCounts>();
   const [map, setMap] = useState<mapboxgl.Map>();
   // end state
 
@@ -100,7 +106,7 @@ const Map: NextPage<Props> = ({
       allInfections,
       currentInfections,
       recovered: curedInfections,
-      deaths
+      deaths: deceased
     } = coronaData;
     const initializeMap = () => {
       const map = new mapboxgl.Map({
@@ -113,14 +119,12 @@ const Map: NextPage<Props> = ({
         fadeDuration: 0
       });
 
-      countPositionsGeo.features[0].properties.count = sumValues(allInfections);
-      countPositionsGeo.features[1].properties.count = sumValues(
-        currentInfections
-      );
-      countPositionsGeo.features[2].properties.count = sumValues(
-        curedInfections
-      );
-      countPositionsGeo.features[3].properties.count = sumValues(deaths);
+      setTotalCounts({
+        allInfections: sumValues(allInfections),
+        currentInfections: sumValues(currentInfections),
+        curedInfections: sumValues(curedInfections),
+        deceased: sumValues(deceased)
+      });
 
       map.on("load", () => {
         setMap(map);
@@ -134,7 +138,7 @@ const Map: NextPage<Props> = ({
             curedInfections,
             currentInfections,
             allInfections,
-            deaths
+            deceased: deceased
           })
         );
         centroidsWithInfectionCounts.features.forEach((f: any) =>
@@ -142,7 +146,7 @@ const Map: NextPage<Props> = ({
             curedInfections,
             currentInfections,
             allInfections,
-            deaths
+            deceased: deceased
           })
         );
 
@@ -177,25 +181,15 @@ const Map: NextPage<Props> = ({
               ["linear"],
               ["get", "currentInfections"],
               0,
-              "#1eff00",
+              "#228B22",
               1,
               "#ff9500",
               100,
               "#ff0000",
               500,
-              "#000000"
+              "#8b0000"
             ],
-            "fill-opacity": [
-              "interpolate",
-              ["linear"],
-              ["get", "currentInfections"],
-              0,
-              fillOpacity,
-              250,
-              fillOpacity,
-              500,
-              1
-            ]
+            "fill-opacity": fillOpacity
           }
         });
         map.addLayer({
@@ -216,28 +210,6 @@ const Map: NextPage<Props> = ({
             "text-halo-width": 1
           }
         });
-
-        const { features } = countPositionsGeo;
-
-        const [
-          allPoint,
-          currentPoint,
-          recoveredPoint,
-          deceasedPoint
-        ] = features;
-
-        const container = makeMarkerElement(
-          allPoint as Point,
-          currentPoint as Point,
-          recoveredPoint as Point,
-          deceasedPoint as Point
-        );
-
-        const marker = new mapboxgl.Marker(container);
-        setMarker(marker);
-        marker
-          .setLngLat(allPoint.geometry.coordinates as [number, number])
-          .addTo(map);
 
         // map.addLayer({
         //   id: countsLayerId,
@@ -317,7 +289,7 @@ const Map: NextPage<Props> = ({
     const { rawInfectionData } = coronaData;
     const allInfections = countAll(rawInfectionData, selectedDate);
     const curedInfections = countRecovered(rawInfectionData, selectedDate);
-    const deaths = countDeaths(rawInfectionData, selectedDate);
+    const deceased = countDeaths(rawInfectionData, selectedDate);
     const currentInfections = countCurrent(
       rawInfectionData,
       selectedDate,
@@ -333,7 +305,7 @@ const Map: NextPage<Props> = ({
         curedInfections,
         currentInfections,
         allInfections,
-        deaths
+        deceased: deceased
       })
     );
 
@@ -343,37 +315,19 @@ const Map: NextPage<Props> = ({
         curedInfections,
         currentInfections,
         allInfections,
-        deaths
+        deceased: deceased
       })
     );
 
     (map.getSource(hcdLayerId) as GeoJSONSource).setData(hcdLayerData);
     (map.getSource(symbolLayerId) as GeoJSONSource).setData(symbolLayerData);
 
-    countPositionsGeo.features[0].properties.count = sumValues(allInfections);
-    countPositionsGeo.features[1].properties.count = sumValues(
-      currentInfections
-    );
-    countPositionsGeo.features[2].properties.count = sumValues(curedInfections);
-    countPositionsGeo.features[3].properties.count = sumValues(deaths);
-
-    const { features } = countPositionsGeo;
-
-    const [allPoint, currentPoint, recoveredPoint, deceasedPoint] = features;
-
-    const container = makeMarkerElement(
-      allPoint as Point,
-      currentPoint as Point,
-      recoveredPoint as Point,
-      deceasedPoint as Point
-    );
-    marker.remove();
-    const newMarker = new mapboxgl.Marker(container);
-
-    newMarker
-      .setLngLat(allPoint.geometry.coordinates as [number, number])
-      .addTo(map);
-    setMarker(newMarker);
+    setTotalCounts({
+      allInfections: sumValues(allInfections),
+      currentInfections: sumValues(currentInfections),
+      curedInfections: sumValues(curedInfections),
+      deceased: sumValues(deceased)
+    });
   }, [selectedDate]);
 
   const dateSliderChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -388,6 +342,7 @@ const Map: NextPage<Props> = ({
     <div>
       <div ref={el => (mapContainer.current = el)} style={mapStyle} />;
       <Slider {...sliderProps} />
+      <TotalCounter {...totalCounts} />
     </div>
   );
 };

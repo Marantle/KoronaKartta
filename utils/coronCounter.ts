@@ -88,23 +88,28 @@ export const addInfectionCountsToFeature = (
     curedInfections: HcdEventCount;
     currentInfections: HcdEventCount;
     allInfections: HcdEventCount;
-    deaths: HcdEventCount;
+    deceased: HcdEventCount;
   }
 ) => {
-  const { curedInfections, currentInfections, allInfections, deaths } = counts;
+  const {
+    curedInfections,
+    currentInfections,
+    allInfections,
+    deceased
+  } = counts;
   const hcdName = feature.properties
     .healthCareDistrict as HealthCareDistrictName;
   feature.properties.currentInfections = currentInfections[hcdName] ?? 0;
   feature.properties.curedInfections = curedInfections[hcdName] ?? 0;
   feature.properties.allInfections = allInfections[hcdName] ?? 0;
-  feature.properties.deaths = deaths[hcdName] ?? 0;
+  feature.properties.deaths = deceased[hcdName] ?? 0;
 };
 
 export const deleteInfectionCountsInFeature = (feature: Feature) => {
   delete feature.properties.currentInfections;
   delete feature.properties.curedInfections;
   delete feature.properties.allInfections;
-  delete feature.properties.deaths;
+  delete feature.properties.decease;
 };
 
 export const sumValues = (data: HcdEventCount) => {
