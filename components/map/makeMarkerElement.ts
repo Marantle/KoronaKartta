@@ -8,6 +8,7 @@ export default (
 ) => {
   const container = document.createElement("div");
   container.className = "container";
+
   [allPoint, currentPoint, recoveredPoint, deceasedPoint].forEach(point => {
     const markerContainer = document.createElement("div");
     markerContainer.className = "marker-container";
