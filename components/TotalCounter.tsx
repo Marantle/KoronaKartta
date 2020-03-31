@@ -30,7 +30,7 @@ if (isDarkMode) {
 const headerStyle: CSS.Properties = {
   borderBottom: "1px solid #dd",
   textAlign: "left",
-  paddingBottom: "15px"
+  paddingBottom: "10px"
 };
 
 const rowTitleStyle: CSS.Properties = {

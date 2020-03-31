@@ -7,7 +7,7 @@ export const popupHtml = ({
   curedInfections,
   deaths
 }: FeatureProperties) => {
-  const header = "padding-bottom: 15px;";
+  const header = "padding-bottom: 10px;";
   const ss = "padding-left: 10px; text-align:right;";
   return `
   <table class="popuptable">

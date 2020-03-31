@@ -29,11 +29,9 @@ export type HealthCareDistrictName =
   | "Sairaanhoitopiiri ei tiedossa";
 
 export interface Confirmed {
-  id: string;
+  value: number;
   date: string;
   healthCareDistrict: HealthCareDistrictName;
-  infectionSourceCountry: InfectionSourceCountry | null;
-  infectionSource: InfectionSourceEnum | number;
 }
 
 export enum InfectionSourceEnum {
@@ -53,12 +51,12 @@ export enum InfectionSourceCountry {
 }
 
 export interface Recovered {
-  id: number | string;
+  value: number;
   date: string;
   healthCareDistrict: HealthCareDistrict;
 }
 export interface Death {
-  id: number | string;
+  value: number;
   date: string;
   healthCareDistrict: HealthCareDistrict;
 }
