@@ -4734,7 +4734,7 @@ json5@^2.1.0:
   dependencies:
     minimist "^1.2.5"
 
-jsonstat-toolkit@^1.1.0:
+jsonstat-toolkit@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/jsonstat-toolkit/-/jsonstat-toolkit-1.0.8.tgz#9af72e7c6456b30b727e70d0fb9ce6e99722e6ec"
   integrity sha512-56MDhrVg+2Gog0KeRTxn3ablQyYsgkjtKnftlsIKi8G37FMpOApUASr7grBEDntsbGNzlWnDAd1R+1fhJr0hGA==
@@ -5028,7 +5028,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
+lodash@4.17.15, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
