@@ -1,5 +1,6 @@
 import CSS from "csstype";
-
+import { useRef, useEffect } from "react";
+import { formatDate } from "../utils/date";
 // position the slider at bottom of the screen
 const sliderContainerStyle: CSS.Properties = {
   zIndex: 1000,
@@ -11,167 +12,208 @@ const sliderContainerStyle: CSS.Properties = {
 
 interface Props {
   selectedDate: string;
+  setSelectedDate: (string: string) => void;
   distinctDates: string[];
   dateSliderChanged: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+const datesAsDates = (dates: string[]) => {
+  return dates.map(d => new Date(d));
+};
+
+const findBestDate = (testDate: Date, days: Date[]) => {
+  var bestDate = days.length;
+  var bestDiff = -new Date(0, 0, 0).valueOf();
+  var currDiff = 0;
+  var i;
+
+  for (i = 0; i < days.length; ++i) {
+    currDiff = Math.abs(days[i].getTime() - testDate.getTime());
+    if (currDiff < bestDiff) {
+      bestDate = i;
+      bestDiff = currDiff;
+    }
+  }
+  return days[bestDate];
+};
+
 export const Slider = ({
   selectedDate,
+  setSelectedDate,
   distinctDates,
   dateSliderChanged
-}: Props) => (
-  <div style={sliderContainerStyle}>
-    <p>{selectedDate}</p>
-    <input
-      type="range"
-      id="diseasedate"
-      name="diseasedate"
-      list="mapsettings"
-      min={0}
-      max={distinctDates.length - 1}
-      defaultValue={distinctDates.length - 1}
-      onChange={dateSliderChanged}
-    />
-    <style jsx>{`
-      div {
-        pointer-events: none;
-      }
+}: Props) => {
+  const sliderRef = useRef<HTMLInputElement | null>(null);
 
-      div > input {
-        pointer-events: auto;
-      }
+  useEffect(() => {
+    if (distinctDates.includes(selectedDate)) {
+      sliderRef.current.value = String(distinctDates.indexOf(selectedDate));
+    } else {
+      const bestDate = findBestDate(
+        new Date(selectedDate),
+        datesAsDates(distinctDates)
+      );
+      const bestDateString = formatDate(bestDate);
+      sliderRef.current.value = String(distinctDates.indexOf(bestDateString));
+      setSelectedDate(bestDateString);
+    }
+  }, [distinctDates]);
 
-      p {
-        font-family: "Roboto", sans-serif;
-        font-size: 2em;
-        width: 100%;
-        display: block;
-        text-align: center;
-        line-height: 150%;
-        margin-bottom: 5px;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        label,
-        p {
-          color: white;
-          -webkit-text-stroke-width: 0.5px;
-          -webkit-text-stroke-color: black;
+  return (
+    <div style={sliderContainerStyle}>
+      <p>{selectedDate}</p>
+      <input
+        ref={el => (sliderRef.current = el)}
+        type="range"
+        id="diseasedate"
+        name="diseasedate"
+        list="mapsettings"
+        min={0}
+        max={distinctDates.length - 1}
+        defaultValue={distinctDates.length - 1}
+        onChange={dateSliderChanged}
+      />
+      <style jsx>{`
+        div {
+          pointer-events: none;
         }
-      }
-      input {
-        padding-bottom: 25px;
-        width: 100%;
-      }
-      input[type="range"] {
-        -webkit-appearance: none;
-        width: 100%;
-        background: transparent;
-      }
 
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-      }
+        div > input {
+          pointer-events: auto;
+        }
 
-      input[type="range"]:focus {
-        outline: none;
-      }
+        p {
+          font-family: "Roboto", sans-serif;
+          font-size: 2em;
+          width: 100%;
+          display: block;
+          text-align: center;
+          line-height: 150%;
+          margin-bottom: 5px;
+        }
 
-      input[type="range"]::-ms-track {
-        width: 100%;
-        cursor: pointer;
+        @media (prefers-color-scheme: dark) {
+          label,
+          p {
+            color: white;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: black;
+          }
+        }
+        input {
+          padding-bottom: 25px;
+          width: 100%;
+        }
+        input[type="range"] {
+          -webkit-appearance: none;
+          width: 100%;
+          background: transparent;
+        }
 
-        background: transparent;
-        border-color: transparent;
-        color: transparent;
-      }
+        input[type="range"]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+        }
 
-      /* Special styling for WebKit/Blink */
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        border: 1px solid #000000;
-        height: 46px;
-        width: 33px;
-        border-radius: 3px;
-        background: #ffffff;
-        cursor: pointer;
-        margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-      }
+        input[type="range"]:focus {
+          outline: none;
+        }
 
-      /* All the same stuff for Firefox */
-      input[type="range"]::-moz-range-thumb {
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        border: 1px solid #000000;
-        height: 46px;
-        width: 33px;
-        border-radius: 3px;
-        background: #ffffff;
-        cursor: pointer;
-      }
+        input[type="range"]::-ms-track {
+          width: 100%;
+          cursor: pointer;
 
-      /* All the same stuff for IE */
-      input[type="range"]::-ms-thumb {
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        border: 1px solid #000000;
-        height: 36px;
-        width: 16px;
-        border-radius: 3px;
-        background: #ffffff;
-        cursor: pointer;
-      }
+          background: transparent;
+          border-color: transparent;
+          color: transparent;
+        }
 
-      input[type="range"]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 8.4px;
-        cursor: pointer;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        background: #3071a9;
-        border-radius: 1.3px;
-        border: 0.2px solid #010101;
-      }
+        /* Special styling for WebKit/Blink */
+        input[type="range"]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          border: 1px solid #000000;
+          height: 46px;
+          width: 33px;
+          border-radius: 3px;
+          background: #ffffff;
+          cursor: pointer;
+          margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+        }
 
-      input[type="range"]:focus::-webkit-slider-runnable-track {
-        background: #367ebd;
-      }
+        /* All the same stuff for Firefox */
+        input[type="range"]::-moz-range-thumb {
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+          border: 1px solid #000000;
+          height: 46px;
+          width: 33px;
+          border-radius: 3px;
+          background: #ffffff;
+          cursor: pointer;
+        }
 
-      input[type="range"]::-moz-range-track {
-        width: 100%;
-        height: 8.4px;
-        cursor: pointer;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        background: #3071a9;
-        border-radius: 1.3px;
-        border: 0.2px solid #010101;
-      }
+        /* All the same stuff for IE */
+        input[type="range"]::-ms-thumb {
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+          border: 1px solid #000000;
+          height: 36px;
+          width: 16px;
+          border-radius: 3px;
+          background: #ffffff;
+          cursor: pointer;
+        }
 
-      input[type="range"]::-ms-track {
-        width: 100%;
-        height: 8.4px;
-        cursor: pointer;
-        background: transparent;
-        border-color: transparent;
-        border-width: 16px 0;
-        color: transparent;
-      }
-      input[type="range"]::-ms-fill-lower {
-        background: #2a6495;
-        border: 0.2px solid #010101;
-        border-radius: 2.6px;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      }
-      input[type="range"]:focus::-ms-fill-lower {
-        background: #3071a9;
-      }
-      input[type="range"]::-ms-fill-upper {
-        background: #3071a9;
-        border: 0.2px solid #010101;
-        border-radius: 2.6px;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      }
-      input[type="range"]:focus::-ms-fill-upper {
-        background: #367ebd;
-      }
-    `}</style>
-  </div>
-);
+        input[type="range"]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 8.4px;
+          cursor: pointer;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+          background: #3071a9;
+          border-radius: 1.3px;
+          border: 0.2px solid #010101;
+        }
+
+        input[type="range"]:focus::-webkit-slider-runnable-track {
+          background: #367ebd;
+        }
+
+        input[type="range"]::-moz-range-track {
+          width: 100%;
+          height: 8.4px;
+          cursor: pointer;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+          background: #3071a9;
+          border-radius: 1.3px;
+          border: 0.2px solid #010101;
+        }
+
+        input[type="range"]::-ms-track {
+          width: 100%;
+          height: 8.4px;
+          cursor: pointer;
+          background: transparent;
+          border-color: transparent;
+          border-width: 16px 0;
+          color: transparent;
+        }
+        input[type="range"]::-ms-fill-lower {
+          background: #2a6495;
+          border: 0.2px solid #010101;
+          border-radius: 2.6px;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+        input[type="range"]:focus::-ms-fill-lower {
+          background: #3071a9;
+        }
+        input[type="range"]::-ms-fill-upper {
+          background: #3071a9;
+          border: 0.2px solid #010101;
+          border-radius: 2.6px;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+        input[type="range"]:focus::-ms-fill-upper {
+          background: #367ebd;
+        }
+      `}</style>
+    </div>
+  );
+};

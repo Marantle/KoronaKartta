@@ -21,12 +21,11 @@ export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
       return;
     }
     if (totals.hasOwnProperty(hcdName)) {
-      totals[hcdName] = totals[hcdName] + confirm.value;
+      totals[hcdName] = totals[hcdName] + (confirm.value || 1);
     } else {
-      totals[hcdName] = confirm.value;
+      totals[hcdName] = confirm.value || 1;
     }
   });
-  console.log(totals);
   return totals as HcdEventCount;
 };
 

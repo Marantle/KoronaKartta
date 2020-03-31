@@ -2,6 +2,7 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
+import fetch from "isomorphic-unfetch";
 import { GetStaticProps } from "next";
 import { Corona } from "../interfaces/corona";
 import hcdGeoData from "../sairaus/simplehcdgeo.json";
@@ -20,15 +21,15 @@ if (typeof window !== "undefined") {
 }
 
 interface Props {
-  data: Corona;
+  hsData: Corona;
+  thlData: Corona;
 }
 
-const IndexPage: NextPage<Props> = ({ data }) => {
-  console.log(data);
-  const allInfections = countAll(data);
-  const currentInfections = countCurrent(data, null, allInfections);
-  const recovered = countRecovered(data);
-  const deaths = countDeaths(data);
+const IndexPage: NextPage<Props> = ({ hsData, thlData }) => {
+  const allInfections = countAll(hsData);
+  const currentInfections = countCurrent(hsData, null, allInfections);
+  const recovered = countRecovered(hsData);
+  const deaths = countDeaths(hsData);
 
   const DynamicMap = dynamic(() => import("../components/map/Map"), {
     loading: () => <Loading />,
@@ -41,7 +42,8 @@ const IndexPage: NextPage<Props> = ({ data }) => {
         hcdGeoData={hcdGeoData}
         hcdCentroidGeoData={hcdCentroiGeoData}
         coronaData={{
-          rawInfectionData: data,
+          rawInfectionData: hsData,
+          rawAlternativeData: thlData,
           allInfections: allInfections,
           currentInfections: currentInfections,
           recovered,
@@ -82,6 +84,7 @@ export const getStaticProps: GetStaticProps = async () => {
   // const data: Corona = await coronaData.json();
   const toolkit = require("jsonstat-toolkit");
   const _ = require("lodash");
+
   const hcdNameMap: any = {
     Ahvenanmaa: "Ahvenanmaa",
     "Varsinais-Suomen SHP": "Varsinais-Suomi",
@@ -126,21 +129,30 @@ export const getStaticProps: GetStaticProps = async () => {
   const grouped = _.groupBy(cleanedObjects, "healthCareDistrict");
   const today = new Date();
   today.setHours(20);
-  const data = _.mapValues(grouped, (group: any) =>
+  const thlData = _.mapValues(grouped, (group: any) =>
     _.sortBy(
       _.filter(group, (item: any) => item.date < today.toISOString()),
       (item: any) => item.date
     )
   );
 
+  const coronaData = await fetch(
+    "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
+  );
+
+  const hsData: Corona = await coronaData.json();
+
+  const props: Props = {
+    thlData: {
+      confirmed: (Object.values(thlData) as any).flatMap((x: any) => x),
+      deaths: [],
+      recovered: []
+    },
+    hsData
+  };
+
   return {
-    props: {
-      data: {
-        confirmed: (Object.values(data) as any).flatMap((x: any) => x),
-        deaths: [],
-        recovered: []
-      } as Corona
-    }
+    props
   };
 };
 
