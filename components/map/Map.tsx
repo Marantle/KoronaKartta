@@ -81,7 +81,7 @@ const Map: NextPage<Props> = ({
 }) => {
   const [mapState] = useState({
     lat: 64.55056046409041,
-    lng: 26.43946362291001,
+    lng: 24.43946362291001,
     zoom: 4,
     minZoom: 4,
     maxZoom: 6
