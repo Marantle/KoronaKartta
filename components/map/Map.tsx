@@ -53,6 +53,7 @@ const mapStyle: CSS.Properties = {
 
 export interface CoronaData {
   rawInfectionData: Corona;
+  rawAlternativeData: Corona;
   allInfections: HcdEventCount;
   currentInfections: HcdEventCount;
   recovered: HcdEventCount;
@@ -80,19 +81,22 @@ const Map: NextPage<Props> = ({
 }) => {
   const [mapState] = useState({
     lat: 64.55056046409041,
-    lng: 26.43946362291001,
+    lng: 24.43946362291001,
     zoom: 4,
     minZoom: 4,
     maxZoom: 6
   });
 
   // get dates for the slider
-  const distinctDates = extractDates(coronaData);
+  const [currentData, setCurrentData] = useState(coronaData.rawInfectionData);
+
+  const [distinctDates, setDistinctDates] = useState(extractDates(currentData));
 
   // state
   const [selectedDate, setSelectedDate] = useState(
     distinctDates[distinctDates.length - 1]
   );
+
   const [totalCounts, setTotalCounts] = useState<TotalCounts>();
   const [map, setMap] = useState<mapboxgl.Map>();
   // end state
@@ -183,10 +187,10 @@ const Map: NextPage<Props> = ({
               0,
               "#228B22",
               1,
-              "#ff9500",
+              "#b3b300",
               100,
-              "#ff0000",
-              500,
+              "#ff9500",
+              Math.max(...Object.values(allInfections)),
               "#8b0000"
             ],
             "fill-opacity": fillOpacity
@@ -287,7 +291,7 @@ const Map: NextPage<Props> = ({
   // dateselection has changed, update layers
   useEffect(() => {
     if (!map) return;
-    const { rawInfectionData } = coronaData;
+    const rawInfectionData = currentData;
     const allInfections = countAll(rawInfectionData, selectedDate);
     const curedInfections = countRecovered(rawInfectionData, selectedDate);
     const deceased = countDeaths(rawInfectionData, selectedDate);
@@ -329,7 +333,11 @@ const Map: NextPage<Props> = ({
       curedInfections: sumValues(curedInfections),
       deceased: sumValues(deceased)
     });
-  }, [selectedDate]);
+  }, [selectedDate, currentData]);
+
+  useEffect(() => {
+    setDistinctDates(extractDates(currentData));
+  }, [currentData]);
 
   const dateSliderChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -337,13 +345,19 @@ const Map: NextPage<Props> = ({
     const d = distinctDates[Number(e.currentTarget.value)];
     setSelectedDate(d);
   };
-
-  const sliderProps = { selectedDate, distinctDates, dateSliderChanged };
+  const hsAction = () => setCurrentData(coronaData.rawInfectionData);
+  const thlAction = () => setCurrentData(coronaData.rawAlternativeData);
+  const sliderProps = {
+    selectedDate,
+    setSelectedDate,
+    distinctDates,
+    dateSliderChanged
+  };
   return (
     <div>
       <div ref={el => (mapContainer.current = el)} style={mapStyle} />;
       <Slider {...sliderProps} />
-      <TotalCounter {...totalCounts} />
+      <TotalCounter {...{ ...totalCounts, hsAction, thlAction }} />
     </div>
   );
 };

@@ -1,16 +1,16 @@
-import { CoronaData } from "../components/map/Map";
+import { Corona } from "../interfaces/corona";
 
 // formats as 2020-01-02
-const formatDate = (d: Date): string =>
+export const formatDate = (d: Date): string =>
   `${d.getFullYear()}-${String(1 + d.getMonth()).padStart(2, "0")}-${String(
     d.getDate()
   ).padStart(2, "0")}`;
 
-export const extractDates = (coronaData: CoronaData) => {
-  const confirmedDates = coronaData.rawInfectionData.confirmed
+export const extractDates = (infectionData: Corona) => {
+  const confirmedDates = infectionData.confirmed
     .map(c => new Date(c.date))
     .map(formatDate);
-  const recoveredDates = coronaData.rawInfectionData.recovered
+  const recoveredDates = infectionData.recovered
     .map(c => new Date(c.date))
     .map(formatDate);
   // trim duplicates

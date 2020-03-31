@@ -21,9 +21,9 @@ export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
       return;
     }
     if (totals.hasOwnProperty(hcdName)) {
-      totals[hcdName] = totals[hcdName] + 1;
+      totals[hcdName] = totals[hcdName] + (confirm.value || 1);
     } else {
-      totals[hcdName] = 1;
+      totals[hcdName] = confirm.value || 1;
     }
   });
   return totals as HcdEventCount;

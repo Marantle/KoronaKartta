@@ -1,6 +1,7 @@
 import CSS from "csstype";
 import { TotalCounts } from "./map/Map";
 import { isDarkMode } from "../utils/dark";
+import DataSourceSwitcher from "./DataSourceSwitcher";
 
 let tableStyle: CSS.Properties = {
   zIndex: 1000,
@@ -30,7 +31,7 @@ if (isDarkMode) {
 const headerStyle: CSS.Properties = {
   borderBottom: "1px solid #dd",
   textAlign: "left",
-  paddingBottom: "15px"
+  paddingBottom: "10px"
 };
 
 const rowTitleStyle: CSS.Properties = {
@@ -44,32 +45,43 @@ const rowStyle: CSS.Properties = {
   textAlign: "right"
 };
 
-export default (totalCounts: TotalCounts) => (
-  <table style={tableStyle}>
-    <thead>
-      <tr>
-        <th colSpan={2} style={headerStyle}>
-          KOKO SUOMI
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style={rowTitleStyle}>Sairaita</td>
-        <td style={rowStyle}>{totalCounts.currentInfections}</td>
-      </tr>
-      <tr>
-        <td style={rowTitleStyle}>Parantuneita</td>
-        <td style={rowStyle}>{totalCounts.curedInfections}</td>
-      </tr>
-      <tr>
-        <td style={rowTitleStyle}>Menehtyneitä</td>
-        <td style={rowStyle}>{totalCounts.deceased}</td>
-      </tr>
-      <tr style={{ fontWeight: "bold" }}>
-        <td style={rowTitleStyle}>Tartuntoja kaikkiaan</td>
-        <td style={rowStyle}>{totalCounts.allInfections}</td>
-      </tr>
-    </tbody>
-  </table>
-);
+interface Props extends TotalCounts {
+  thlAction: () => void;
+  hsAction: () => void;
+}
+export default (props: Props) => {
+  const { hsAction, thlAction } = props;
+  return (
+    <div style={tableStyle}>
+      <table>
+        <thead>
+          <tr>
+            <th colSpan={2} style={headerStyle}>
+              KOKO SUOMI
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style={rowTitleStyle}>Sairaita</td>
+            <td style={rowStyle}>{props.currentInfections}</td>
+          </tr>
+          <tr>
+            <td style={rowTitleStyle}>Parantuneita</td>
+            <td style={rowStyle}>{props.curedInfections}</td>
+          </tr>
+          <tr>
+            <td style={rowTitleStyle}>Menehtyneitä</td>
+            <td style={rowStyle}>{props.deceased}</td>
+          </tr>
+          <tr style={{ fontWeight: "bold" }}>
+            <td style={rowTitleStyle}>Tartuntoja kaikkiaan</td>
+            <td style={rowStyle}>{props.allInfections}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <DataSourceSwitcher {...{ hsAction, thlAction }} />
+    </div>
+  );
+};

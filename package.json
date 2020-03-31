@@ -32,7 +32,9 @@
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "2.5.0",
     "husky": "4.2.3",
+    "jsonstat-toolkit": "^1.0.8",
     "lint-staged": "10.0.8",
+    "lodash": "4.17.15",
     "prettier": "1.19.1",
     "typescript": "3.7.3"
   },
