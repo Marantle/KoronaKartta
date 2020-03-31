@@ -141,10 +141,13 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const hsData: Corona = await coronaData.json();
-
+  const thlConfirm = (Object.values(thlData) as any).reduce(
+    (a: any[], v: any[]) => a.concat(v),
+    []
+  );
   const props: Props = {
     thlData: {
-      confirmed: (Object.values(thlData) as any).flatMap((x: any) => x),
+      confirmed: thlConfirm,
       deaths: [],
       recovered: []
     },
