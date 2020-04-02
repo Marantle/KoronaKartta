@@ -13,7 +13,13 @@ export const extractDates = (infectionData: Corona) => {
   const recoveredDates = infectionData.recovered
     .map(c => new Date(c.date))
     .map(formatDate);
+  const deathDates = infectionData.deaths
+    .map(c => new Date(c.date))
+    .map(formatDate);
   // trim duplicates
-  const dates = [...new Set(...[confirmedDates, recoveredDates])].sort();
+  const dates = [
+    ...new Set([...confirmedDates, ...recoveredDates, ...deathDates])
+  ].sort();
+  console.log({ dates });
   return dates;
 };

@@ -78,10 +78,6 @@ const IndexPage: NextPage<Props> = ({ hsData, thlData }) => {
 export const getStaticProps: GetStaticProps = async () => {
   // Call an external API endpoint to get posts.
   // const coronaData = await fetch(
-  //   "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
-  // );
-
-  // const data: Corona = await coronaData.json();
   const toolkit = require("jsonstat-toolkit");
   const _ = require("lodash");
 
@@ -137,7 +133,7 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const coronaData = await fetch(
-    "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
+    "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2"
   );
 
   const hsData: Corona = await coronaData.json();
