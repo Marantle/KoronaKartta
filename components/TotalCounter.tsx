@@ -1,7 +1,6 @@
 import CSS from "csstype";
 import { TotalCounts } from "./map/Map";
 import { isDarkMode } from "../utils/dark";
-import DataSourceSwitcher from "./DataSourceSwitcher";
 
 let tableStyle: CSS.Properties = {
   zIndex: 1000,
@@ -50,7 +49,7 @@ interface Props extends TotalCounts {
   hsAction: () => void;
 }
 export default (props: Props) => {
-  const { hsAction, thlAction } = props;
+  // const { hsAction, thlAction } = props;
   return (
     <div style={tableStyle}>
       <table>
