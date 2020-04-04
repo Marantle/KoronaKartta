@@ -81,7 +81,7 @@ export default (props: Props) => {
         </tbody>
       </table>
 
-      <DataSourceSwitcher {...{ hsAction, thlAction }} />
+      {/* <DataSourceSwitcher {...{ hsAction, thlAction }} /> */}
     </div>
   );
 };
