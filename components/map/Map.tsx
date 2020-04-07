@@ -142,7 +142,7 @@ const Map: NextPage<Props> = ({
             curedInfections,
             currentInfections,
             allInfections,
-            deceased: deceased
+            deceased
           })
         );
         centroidsWithInfectionCounts.features.forEach((f: any) =>
@@ -150,10 +150,10 @@ const Map: NextPage<Props> = ({
             curedInfections,
             currentInfections,
             allInfections,
-            deceased: deceased
+            deceased
           })
         );
-
+        console.log({ hcdGeoDataWithInfectionCounts });
         const hcdSource = {
           type: "geojson",
           data: hcdGeoDataWithInfectionCounts
@@ -262,7 +262,7 @@ const Map: NextPage<Props> = ({
           firebase.logEvent("select_content", {
             content_id: properties.healthCareDistrict
           });
-
+          console.log(properties);
           popup
             .setLngLat(e.lngLat)
             .setHTML(popupHtml(properties))
