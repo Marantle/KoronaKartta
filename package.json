@@ -34,7 +34,7 @@
     "husky": "4.2.3",
     "jsonstat-toolkit": "^1.0.8",
     "lint-staged": "10.0.8",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "prettier": "1.19.1",
     "typescript": "3.7.3"
   },
