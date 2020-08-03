@@ -7,9 +7,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - name: Install
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: yarn install
+      env:
+        CI: true
+  
+    - name: Build
+      uses: netlify/actions/cli@master
+      with:
+        args: build
+      env:
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
-    - name: Publish
+    - name: Deploy
       uses: netlify/actions/cli@master
       with:
         args: deploy
