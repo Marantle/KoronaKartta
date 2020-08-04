@@ -13,11 +13,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
           node-version: '11.x'
-          
-    - name: Yarn build
-    - run: yarn install --frozen-lockfile
-    - run: yarn build
-    - run: yarn export
+    - run: yarn install --frozen-lockfile && yarn build && yarn export
 
     - name: Publish
       uses: netlify/actions/cli@master
