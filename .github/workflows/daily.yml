@@ -13,12 +13,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
           node-version: '11.x'
-    - run: yarn install --frozen-lockfile && yarn build && yarn export
+    - run: | 
+        yarn install --frozen-lockfile
+        yarn build
+        yarn export
 
     - name: Publish
       uses: netlify/actions/cli@master
       with:
-        args: deploy --dir=site --functions=functions
+        args: deploy
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
