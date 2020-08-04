@@ -16,9 +16,10 @@ jobs:
           
     - name: Yarn install
     - run: yarn install --frozen-lockfile
+    - run: ls -lat
+    - run: pwd
       env:
         CI: true
-    - run: ls -lat
     - uses: netlify/actions/cli@master
       with:
         args: build
