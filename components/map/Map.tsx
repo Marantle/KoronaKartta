@@ -7,8 +7,6 @@ import { Corona, Feature } from "../../interfaces/corona";
 
 import {
   HcdEventCount,
-  countRecovered,
-  countCurrent,
   countAll,
   addInfectionCountsToFeature,
   deleteInfectionCountsInFeature,
@@ -55,15 +53,11 @@ export interface CoronaData {
   rawInfectionData: Corona;
   rawAlternativeData: Corona;
   allInfections: HcdEventCount;
-  currentInfections: HcdEventCount;
-  recovered: HcdEventCount;
   deaths: HcdEventCount;
 }
 
 export interface TotalCounts {
   allInfections: number;
-  currentInfections: number;
-  curedInfections: number;
   deceased: number;
 }
 
@@ -106,12 +100,7 @@ const Map: NextPage<Props> = ({
 
   // initial use-effect to load the map
   useEffect(() => {
-    const {
-      allInfections,
-      currentInfections,
-      recovered: curedInfections,
-      deaths: deceased
-    } = coronaData;
+    const { allInfections, deaths: deceased } = coronaData;
     const initializeMap = () => {
       const map = new mapboxgl.Map({
         container: mapContainer.current as any,
@@ -125,8 +114,6 @@ const Map: NextPage<Props> = ({
 
       setTotalCounts({
         allInfections: sumValues(allInfections),
-        currentInfections: sumValues(currentInfections),
-        curedInfections: sumValues(curedInfections),
         deceased: sumValues(deceased)
       });
 
@@ -139,21 +126,16 @@ const Map: NextPage<Props> = ({
 
         hcdGeoDataWithInfectionCounts.features.forEach((f: any) =>
           addInfectionCountsToFeature(f, {
-            curedInfections,
-            currentInfections,
             allInfections,
             deceased
           })
         );
         centroidsWithInfectionCounts.features.forEach((f: any) =>
           addInfectionCountsToFeature(f, {
-            curedInfections,
-            currentInfections,
             allInfections,
             deceased
           })
         );
-        console.log({ hcdGeoDataWithInfectionCounts });
         const hcdSource = {
           type: "geojson",
           data: hcdGeoDataWithInfectionCounts
@@ -183,7 +165,7 @@ const Map: NextPage<Props> = ({
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "currentInfections"],
+              ["get", "allInfections"],
               0,
               "#228B22",
               1,
@@ -203,7 +185,7 @@ const Map: NextPage<Props> = ({
           layout: {
             "symbol-placement": "point",
             "text-font": ["Arial Unicode MS Bold"],
-            "text-field": "{currentInfections}",
+            "text-field": "{allInfections}",
             "text-size": 28,
             "icon-allow-overlap": true,
             "text-allow-overlap": true
@@ -293,13 +275,7 @@ const Map: NextPage<Props> = ({
     if (!map) return;
     const rawInfectionData = currentData;
     const allInfections = countAll(rawInfectionData, selectedDate);
-    const curedInfections = countRecovered(rawInfectionData, selectedDate);
     const deceased = countDeaths(rawInfectionData, selectedDate);
-    const currentInfections = countCurrent(
-      rawInfectionData,
-      selectedDate,
-      allInfections
-    );
     // geodata types come from json files automatically so we bypass them for this step
     const hcdLayerData: any = hcdGeoData;
     const symbolLayerData: any = hcdCentroidGeoData;
@@ -307,8 +283,6 @@ const Map: NextPage<Props> = ({
     hcdLayerData.features.forEach(deleteInfectionCountsInFeature);
     hcdLayerData.features.forEach((f: any) =>
       addInfectionCountsToFeature(f, {
-        curedInfections,
-        currentInfections,
         allInfections,
         deceased: deceased
       })
@@ -317,8 +291,6 @@ const Map: NextPage<Props> = ({
     symbolLayerData.features.forEach(deleteInfectionCountsInFeature);
     symbolLayerData.features.forEach((f: any) =>
       addInfectionCountsToFeature(f, {
-        curedInfections,
-        currentInfections,
         allInfections,
         deceased: deceased
       })
@@ -329,8 +301,6 @@ const Map: NextPage<Props> = ({
 
     setTotalCounts({
       allInfections: sumValues(allInfections),
-      currentInfections: sumValues(currentInfections),
-      curedInfections: sumValues(curedInfections),
       deceased: sumValues(deceased)
     });
   }, [selectedDate, currentData]);

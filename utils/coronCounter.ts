@@ -1,9 +1,9 @@
 import {
-  Corona,
   Confirmed,
-  Recovered,
-  HealthCareDistrictName,
-  Feature
+  Corona,
+  Death,
+  Feature,
+  HealthCareDistrictName
 } from "../interfaces/corona";
 
 export type HcdEventCount = {
@@ -13,7 +13,13 @@ export type HcdEventCount = {
 const dateTail = "T23:59:59.000Z";
 const unknownHcd = "Sairaanhoitopiiri ei tiedossa";
 
+const countedAlls = new Map<string, HcdEventCount>();
+const countedDeaths = new Map<string, HcdEventCount>();
+
 export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
+  console.time(time);
+  if (countedAlls.has(time)) return countedAlls.get(time);
+
   const totals: Partial<HcdEventCount> = {};
   coronaData.confirmed.forEach((confirm: Confirmed) => {
     const hcdName = confirm.healthCareDistrict ?? unknownHcd;
@@ -26,51 +32,19 @@ export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
       totals[hcdName] = confirm.value || 1;
     }
   });
+  countedAlls.set(time, totals as HcdEventCount);
   return totals as HcdEventCount;
-};
-
-export const countCurrent = (
-  coronaData: Corona,
-  time: string = "2022-01-28",
-  totalConfirmed: Partial<HcdEventCount>
-) => {
-  const current: Partial<HcdEventCount> = { ...totalConfirmed };
-  const { recovered, deaths } = coronaData;
-  [...recovered, ...deaths].forEach((recover: Recovered) => {
-    const hcdName = recover.healthCareDistrict ?? unknownHcd;
-    if (time && recover.date > time + dateTail) {
-      return;
-    }
-    if (current.hasOwnProperty(hcdName)) {
-      current[hcdName] = current[hcdName] - 1;
-    }
-  });
-  return current as HcdEventCount;
-};
-
-export const countRecovered = (
-  coronaData: Corona,
-  time: string = "2022-01-28"
-) => {
-  return countDeathsOrRecovered(coronaData, time, "recovered");
 };
 
 export const countDeaths = (
   coronaData: Corona,
   time: string = "2022-01-28"
 ) => {
-  return countDeathsOrRecovered(coronaData, time, "deaths");
-};
-
-const countDeathsOrRecovered = (
-  coronaData: Corona,
-  time: string = "2022-01-28",
-  key: "recovered" | "deaths"
-) => {
+  if (countedDeaths.has(time)) return countedDeaths.get(time);
   const totals: Partial<HcdEventCount> = {};
-  coronaData[key].forEach((recover: Recovered) => {
-    const hcdName = recover.healthCareDistrict ?? unknownHcd;
-    if (time && recover.date > time + dateTail) {
+  coronaData.deaths.forEach((death: Death) => {
+    const hcdName = death.healthCareDistrict ?? unknownHcd;
+    if (time && death.date > time + dateTail) {
       return;
     }
     if (totals.hasOwnProperty(hcdName)) {
@@ -79,35 +53,25 @@ const countDeathsOrRecovered = (
       totals[hcdName] = 1;
     }
   });
+  countedDeaths.set(time, totals as HcdEventCount);
   return totals as HcdEventCount;
 };
 
 export const addInfectionCountsToFeature = (
   feature: Feature,
   counts: {
-    curedInfections: HcdEventCount;
-    currentInfections: HcdEventCount;
     allInfections: HcdEventCount;
     deceased: HcdEventCount;
   }
 ) => {
-  const {
-    curedInfections,
-    currentInfections,
-    allInfections,
-    deceased
-  } = counts;
+  const { allInfections, deceased } = counts;
   const hcdName = feature.properties
     .healthCareDistrict as HealthCareDistrictName;
-  feature.properties.currentInfections = currentInfections[hcdName] ?? 0;
-  feature.properties.curedInfections = curedInfections[hcdName] ?? 0;
   feature.properties.allInfections = allInfections[hcdName] ?? 0;
   feature.properties.deaths = deceased[hcdName] ?? 0;
 };
 
 export const deleteInfectionCountsInFeature = (feature: Feature) => {
-  delete feature.properties.currentInfections;
-  delete feature.properties.curedInfections;
   delete feature.properties.allInfections;
   delete feature.properties.decease;
 };

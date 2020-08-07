@@ -1,7 +1,6 @@
 export interface Corona {
   confirmed: Confirmed[];
   deaths: Death[];
-  recovered: Recovered[];
 }
 
 export type HealthCareDistrictName =

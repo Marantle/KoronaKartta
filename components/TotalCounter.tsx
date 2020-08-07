@@ -62,14 +62,6 @@ export default (props: Props) => {
         </thead>
         <tbody>
           <tr>
-            <td style={rowTitleStyle}>Sairaita</td>
-            <td style={rowStyle}>{props.currentInfections}</td>
-          </tr>
-          <tr>
-            <td style={rowTitleStyle}>Parantuneita</td>
-            <td style={rowStyle}>{props.curedInfections}</td>
-          </tr>
-          <tr>
             <td style={rowTitleStyle}>Menehtyneitä</td>
             <td style={rowStyle}>{props.deceased}</td>
           </tr>

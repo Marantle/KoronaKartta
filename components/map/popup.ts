@@ -3,8 +3,6 @@ import { FeatureProperties } from "../../interfaces/corona";
 export const popupHtml = ({
   healthCareDistrict,
   allInfections,
-  currentInfections,
-  curedInfections,
   deaths
 }: FeatureProperties) => {
   const header = "padding-bottom: 10px;";
@@ -19,16 +17,8 @@ export const popupHtml = ({
       </thead>
       <tbody>
           <tr>
-              <td>Sairaita </td>
-              <td style="${ss}">${currentInfections}</td>
-          </tr>
-          <tr>
-              <td>Parantuneita </td>
-              <td style="${ss}">${curedInfections}</td>
-          </tr>
-          <tr>
               <td>Menehtyneitä </td>
-              <td style="${ss}">${deaths}</td>
+              <td style="${ss}">${deaths > 0 ? deaths : "?"}</td>
           </tr>
           <tr style="font-weight: bold;">
               <td>Tartuntoja kaikkiaan </td>
