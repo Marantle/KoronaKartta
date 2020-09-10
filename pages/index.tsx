@@ -8,7 +8,7 @@ import { Corona } from "../interfaces/corona";
 import hcdGeoData from "../sairaus/simplehcdgeo.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
 import countPositionsGeo from "../sairaus/totalPositions.json";
-import { countAll, countDeaths } from "../utils/coronCounter";
+import { countAll, countDeaths } from "../utils/coronaCounter";
 import { Loading } from "../components/Loading";
 
 if (typeof window !== "undefined") {

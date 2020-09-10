@@ -12,7 +12,7 @@ import {
   deleteInfectionCountsInFeature,
   countDeaths,
   sumValues
-} from "../../utils/coronCounter";
+} from "../../utils/coronaCounter";
 import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
 import { popupHtml } from "./popup";

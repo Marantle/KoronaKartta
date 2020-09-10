@@ -17,7 +17,6 @@ const countedAlls = new Map<string, HcdEventCount>();
 const countedDeaths = new Map<string, HcdEventCount>();
 
 export const countAll = (coronaData: Corona, time: string = "2022-01-28") => {
-  console.time(time);
   if (countedAlls.has(time)) return countedAlls.get(time);
 
   const totals: Partial<HcdEventCount> = {};
