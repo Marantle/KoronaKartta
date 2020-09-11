@@ -46,18 +46,15 @@ const rowStyle: CSS.Properties = {
   textAlign: "right",
 };
 
-interface Props extends TotalCounts {
-  hsAction: () => void;
-}
-const TotalCounter = (props: Props) => {
+const TotalCounter = (props: TotalCounts) => {
   return (
-    <div style={tableStyle}>
-      <table>
+    <div style={props.title ? {} : tableStyle}>
+      <table className="popuptable">
         <thead>
           <tr>
             <th colSpan={2} style={headerStyle}>
               <Typography variant="h6" component="h1">
-                KOKO SUOMI
+                {props.title ?? "KOKO SUOMI"}
               </Typography>
             </th>
           </tr>
@@ -69,15 +66,23 @@ const TotalCounter = (props: Props) => {
                 Menehtyneitä
               </Typography>
             </td>
-            <td style={rowStyle}>{props.deceased}</td>
+            <td style={rowStyle}>
+              <Typography variant="subtitle1" component="h2">
+                {props.deceased}
+              </Typography>
+            </td>
           </tr>
           <tr style={{ fontWeight: "bold" }}>
             <td style={rowTitleStyle}>
-              <Typography variant="subtitle1" component="h2">
+              <Typography noWrap variant="subtitle1" component="h2">
                 Tartuntoja kaikkiaan
               </Typography>
             </td>
-            <td style={rowStyle}>{props.allInfections}</td>
+            <td style={rowStyle}>
+              <Typography noWrap variant="subtitle1" component="h2">
+                {props.allInfections}
+              </Typography>
+            </td>
           </tr>
         </tbody>
       </table>
