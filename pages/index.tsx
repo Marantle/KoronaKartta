@@ -71,13 +71,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const hsData: Corona = await coronaData.json();
 
-  const sorter = (d: Confirmed | Death) => d.date < "2020-04-01T14:05:00.000Z";
+  const firstMonth = (d: Confirmed | Death) =>
+    d.date < "2020-04-01T14:05:00.000Z";
   if (isDev) {
-    hsData.confirmed = hsData.confirmed.filter(sorter);
-    hsData.deaths = hsData.deaths.filter(sorter);
+    hsData.confirmed = hsData.confirmed.filter(firstMonth);
+    hsData.deaths = hsData.deaths.filter(firstMonth);
   }
-
-  console.log(JSON.stringify(hsData, null, 2));
 
   const props: Props = {
     hsData,

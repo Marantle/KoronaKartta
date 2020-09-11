@@ -1,12 +1,11 @@
 import {
   createMuiTheme,
-  makeStyles,
   Slider,
   ThemeProvider,
   Typography,
 } from "@material-ui/core";
 import CSS from "csstype";
-import { useRef, useEffect, ChangeEvent } from "react";
+import { ChangeEvent, useEffect, useRef } from "react";
 import { formatDate } from "../utils/date";
 // position the slider at bottom of the screen
 const sliderContainerStyle: CSS.Properties = {
@@ -66,17 +65,9 @@ export const DateSlider = ({
     }
   }, [distinctDates]);
 
-  const useStyles = makeStyles({
-    valueLabel: {
-      width: "300px",
-    },
-  });
-
-  function valuetext(value: any) {
-    return `${value}°C`;
+  function valuetext(value: number) {
+    return `${distinctDates[value]}`;
   }
-
-  const marks = distinctDates.map((d, ix) => ({ value: ix, label: d }));
 
   const muiTheme = createMuiTheme({
     overrides: {
@@ -111,10 +102,6 @@ export const DateSlider = ({
       </ThemeProvider>
 
       <style jsx>{`
-        .circle {
-          width: 64px;
-          height: 64px;
-        }
         div > input {
           pointer-events: auto;
         }
