@@ -7,7 +7,7 @@ const sliderContainerStyle: CSS.Properties = {
   position: "absolute",
   left: "10%",
   right: "10%",
-  bottom: "1%"
+  bottom: "1%",
 };
 
 interface Props {
@@ -18,14 +18,14 @@ interface Props {
 }
 
 const datesAsDates = (dates: string[]) => {
-  return dates.map(d => new Date(d));
+  return dates.map((d) => new Date(d));
 };
 
 const findBestDate = (testDate: Date, days: Date[]) => {
-  var bestDate = days.length;
-  var bestDiff = -new Date(0, 0, 0).valueOf();
-  var currDiff = 0;
-  var i;
+  let bestDate = days.length;
+  let bestDiff = -new Date(0, 0, 0).valueOf();
+  let currDiff = 0;
+  let i;
 
   for (i = 0; i < days.length; ++i) {
     currDiff = Math.abs(days[i].getTime() - testDate.getTime());
@@ -41,29 +41,29 @@ export const Slider = ({
   selectedDate,
   setSelectedDate,
   distinctDates,
-  dateSliderChanged
+  dateSliderChanged,
 }: Props) => {
   const sliderRef = useRef<HTMLInputElement | null>(null);
 
-  useEffect(() => {
-    if (distinctDates.includes(selectedDate)) {
-      sliderRef.current.value = String(distinctDates.indexOf(selectedDate));
-    } else {
-      const bestDate = findBestDate(
-        new Date(selectedDate),
-        datesAsDates(distinctDates)
-      );
-      const bestDateString = formatDate(bestDate);
-      sliderRef.current.value = String(distinctDates.indexOf(bestDateString));
-      setSelectedDate(bestDateString);
-    }
-  }, [distinctDates]);
+  // useEffect(() => {
+  //   if (distinctDates.includes(selectedDate)) {
+  //     sliderRef.current.value = String(distinctDates.indexOf(selectedDate));
+  //   } else {
+  //     const bestDate = findBestDate(
+  //       new Date(selectedDate),
+  //       datesAsDates(distinctDates)
+  //     );
+  //     const bestDateString = formatDate(bestDate);
+  //     sliderRef.current.value = String(distinctDates.indexOf(bestDateString));
+  //     setSelectedDate(bestDateString);
+  //   }
+  // }, [distinctDates]);
 
   return (
     <div style={sliderContainerStyle}>
       <p>{selectedDate}</p>
       <input
-        ref={el => (sliderRef.current = el)}
+        ref={(el) => (sliderRef.current = el)}
         type="range"
         id="diseasedate"
         name="diseasedate"

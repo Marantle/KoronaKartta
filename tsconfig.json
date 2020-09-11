@@ -18,8 +18,7 @@
     "strict": true,
     "target": "esnext",
     "strictNullChecks": false
-
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "pages/_document.js"]
 }
