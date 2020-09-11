@@ -11,7 +11,7 @@ import {
   addInfectionCountsToFeature,
   deleteInfectionCountsInFeature,
   countDeaths,
-  sumValues
+  sumValues,
 } from "../../utils/coronaCounter";
 import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
@@ -46,12 +46,11 @@ const mapStyle: CSS.Properties = {
   left: 0,
   top: 0,
   bottom: 0,
-  position: "absolute"
+  position: "absolute",
 };
 
 export interface CoronaData {
   rawInfectionData: Corona;
-  rawAlternativeData: Corona;
   allInfections: HcdEventCount;
   deaths: HcdEventCount;
 }
@@ -71,14 +70,14 @@ interface Props {
 const Map: NextPage<Props> = ({
   hcdGeoData,
   hcdCentroidGeoData,
-  coronaData
+  coronaData,
 }) => {
   const [mapState] = useState({
     lat: 64.55056046409041,
     lng: 24.43946362291001,
     zoom: 4,
     minZoom: 4,
-    maxZoom: 6
+    maxZoom: 6,
   });
 
   // get dates for the slider
@@ -109,12 +108,12 @@ const Map: NextPage<Props> = ({
         zoom: mapState.zoom,
         minZoom: mapState.minZoom,
         maxZoom: mapState.maxZoom,
-        fadeDuration: 0
+        fadeDuration: 0,
       });
 
       setTotalCounts({
         allInfections: sumValues(allInfections),
-        deceased: sumValues(deceased)
+        deceased: sumValues(deceased),
       });
 
       map.on("load", () => {
@@ -127,23 +126,23 @@ const Map: NextPage<Props> = ({
         hcdGeoDataWithInfectionCounts.features.forEach((f: any) =>
           addInfectionCountsToFeature(f, {
             allInfections,
-            deceased
+            deceased,
           })
         );
         centroidsWithInfectionCounts.features.forEach((f: any) =>
           addInfectionCountsToFeature(f, {
             allInfections,
-            deceased
+            deceased,
           })
         );
         const hcdSource = {
           type: "geojson",
-          data: hcdGeoDataWithInfectionCounts
+          data: hcdGeoDataWithInfectionCounts,
         };
 
         const centroidSource = {
           type: "geojson",
-          data: centroidsWithInfectionCounts
+          data: centroidsWithInfectionCounts,
         };
 
         // const countsSource = {
@@ -173,10 +172,10 @@ const Map: NextPage<Props> = ({
               100,
               "#ff9500",
               Math.max(...Object.values(allInfections)),
-              "#8b0000"
+              "#8b0000",
             ],
-            "fill-opacity": fillOpacity
-          }
+            "fill-opacity": fillOpacity,
+          },
         });
         map.addLayer({
           id: symbolLayerId,
@@ -188,13 +187,13 @@ const Map: NextPage<Props> = ({
             "text-field": "{allInfections}",
             "text-size": 28,
             "icon-allow-overlap": true,
-            "text-allow-overlap": true
+            "text-allow-overlap": true,
           },
           paint: {
             "text-color": textColor,
             "text-halo-color": textHalo,
-            "text-halo-width": 1
-          }
+            "text-halo-width": 1,
+          },
         });
 
         // map.addLayer({
@@ -224,31 +223,28 @@ const Map: NextPage<Props> = ({
             paint: {
               "line-color": "#FFF",
               "line-opacity": 1,
-              "line-width": 0.5
-            }
+              "line-width": 0.5,
+            },
           });
         }
 
         const popup = new mapboxgl.Popup({
           closeButton: false,
           closeOnClick: false,
-          className: "kartta-popup"
+          className: "kartta-popup",
         });
 
-        map.on("click", hcdLayerId, function(e) {
+        map.on("click", hcdLayerId, function (e) {
           popup.remove();
           // merge mapbox feature style with ours to recover their properties
           const { properties } = e.features[0] as typeof e.features[0] &
             Feature;
 
           firebase.logEvent("select_content", {
-            content_id: properties.healthCareDistrict
+            content_id: properties.healthCareDistrict,
           });
           console.log(properties);
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML(popupHtml(properties))
-            .addTo(map);
+          popup.setLngLat(e.lngLat).setHTML(popupHtml(properties)).addTo(map);
         });
 
         map.on("mouseenter", hcdLayerId, () => {
@@ -284,7 +280,7 @@ const Map: NextPage<Props> = ({
     hcdLayerData.features.forEach((f: any) =>
       addInfectionCountsToFeature(f, {
         allInfections,
-        deceased: deceased
+        deceased: deceased,
       })
     );
 
@@ -292,7 +288,7 @@ const Map: NextPage<Props> = ({
     symbolLayerData.features.forEach((f: any) =>
       addInfectionCountsToFeature(f, {
         allInfections,
-        deceased: deceased
+        deceased: deceased,
       })
     );
 
@@ -301,7 +297,7 @@ const Map: NextPage<Props> = ({
 
     setTotalCounts({
       allInfections: sumValues(allInfections),
-      deceased: sumValues(deceased)
+      deceased: sumValues(deceased),
     });
   }, [selectedDate, currentData]);
 
@@ -316,18 +312,17 @@ const Map: NextPage<Props> = ({
     setSelectedDate(d);
   };
   const hsAction = () => setCurrentData(coronaData.rawInfectionData);
-  const thlAction = () => setCurrentData(coronaData.rawAlternativeData);
   const sliderProps = {
     selectedDate,
     setSelectedDate,
     distinctDates,
-    dateSliderChanged
+    dateSliderChanged,
   };
   return (
     <div>
-      <div ref={el => (mapContainer.current = el)} style={mapStyle} />;
+      <div ref={(el) => (mapContainer.current = el)} style={mapStyle} />;
       <Slider {...sliderProps} />
-      <TotalCounter {...{ ...totalCounts, hsAction, thlAction }} />
+      <TotalCounter {...{ ...totalCounts, hsAction }} />
     </div>
   );
 };
