@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { NextPage } from "next";
 import mapboxgl, { GeoJSONSource } from "mapbox-gl";
 import CSS from "csstype";
 import { HCD, HCDCentroid, CountPositions } from "../../interfaces/json";
 import { Corona, Feature } from "../../interfaces/corona";
-
+import debounce from "lodash/debounce";
 import {
   HcdEventCount,
   countAll,
@@ -15,7 +15,7 @@ import {
 } from "../../utils/coronaCounter";
 import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
-import { popupHtml } from "./popup";
+import { renderPopup } from "./popup";
 import { isDarkMode } from "../../utils/dark";
 import { DateSlider } from "../DateSlider";
 import TotalCounter from "../TotalCounter";
@@ -56,8 +56,9 @@ export interface CoronaData {
 }
 
 export interface TotalCounts {
-  allInfections: number;
-  deceased: number;
+  allInfections: string | number;
+  deceased: string | number;
+  title?: string;
 }
 
 interface Props {
@@ -80,15 +81,7 @@ const Map: NextPage<Props> = ({
     maxZoom: 6,
   });
 
-  // get dates for the slider
-  const [currentData, setCurrentData] = useState(coronaData.rawInfectionData);
-
-  const [distinctDates, setDistinctDates] = useState(extractDates(currentData));
-
-  // state
-  const [selectedDate, setSelectedDate] = useState(
-    distinctDates[distinctDates.length - 1]
-  );
+  const distinctDates = extractDates(coronaData.rawInfectionData);
 
   const [totalCounts, setTotalCounts] = useState<TotalCounts>();
   const [map, setMap] = useState<mapboxgl.Map>();
@@ -220,8 +213,11 @@ const Map: NextPage<Props> = ({
           firebase.logEvent("select_content", {
             content_id: properties.healthCareDistrict,
           });
-          console.log(properties);
-          popup.setLngLat(e.lngLat).setHTML(popupHtml(properties)).addTo(map);
+
+          popup
+            .setLngLat(e.lngLat)
+            .setDOMContent(renderPopup(properties))
+            .addTo(map);
         });
 
         map.on("mouseenter", hcdLayerId, () => {
@@ -243,44 +239,41 @@ const Map: NextPage<Props> = ({
   }, []);
   // end initial use-effect
 
-  // dateselection has changed, update layers
-  useEffect(() => {
-    if (!map) return;
-    const rawInfectionData = currentData;
-    const allInfections = countAll(rawInfectionData, selectedDate);
-    const deceased = countDeaths(rawInfectionData, selectedDate);
-    // geodata types come from json files automatically so we bypass them for this step
-    const hcdLayerData: any = hcdGeoData;
-    const symbolLayerData: any = hcdCentroidGeoData;
+  const updatedLayers = useCallback(
+    debounce((selectedDate: string, map: mapboxgl.Map) => {
+      const { rawInfectionData } = coronaData;
+      const allInfections = countAll(rawInfectionData, selectedDate);
+      const deceased = countDeaths(rawInfectionData, selectedDate);
+      // geodata types come from json files automatically so we bypass them for this step
+      const hcdLayerData: any = hcdGeoData;
+      const symbolLayerData: any = hcdCentroidGeoData;
 
-    hcdLayerData.features.forEach(deleteInfectionCountsInFeature);
-    hcdLayerData.features.forEach((f: any) =>
-      addInfectionCountsToFeature(f, {
-        allInfections,
-        deceased: deceased,
-      })
-    );
+      hcdLayerData.features.forEach(deleteInfectionCountsInFeature);
+      hcdLayerData.features.forEach((f: any) =>
+        addInfectionCountsToFeature(f, {
+          allInfections,
+          deceased: deceased,
+        })
+      );
 
-    symbolLayerData.features.forEach(deleteInfectionCountsInFeature);
-    symbolLayerData.features.forEach((f: any) =>
-      addInfectionCountsToFeature(f, {
-        allInfections,
-        deceased: deceased,
-      })
-    );
+      symbolLayerData.features.forEach(deleteInfectionCountsInFeature);
+      symbolLayerData.features.forEach((f: any) =>
+        addInfectionCountsToFeature(f, {
+          allInfections,
+          deceased: deceased,
+        })
+      );
 
-    (map.getSource(hcdLayerId) as GeoJSONSource).setData(hcdLayerData);
-    (map.getSource(symbolLayerId) as GeoJSONSource).setData(symbolLayerData);
+      (map.getSource(hcdLayerId) as GeoJSONSource).setData(hcdLayerData);
+      (map.getSource(symbolLayerId) as GeoJSONSource).setData(symbolLayerData);
 
-    setTotalCounts({
-      allInfections: sumValues(allInfections),
-      deceased: sumValues(deceased),
-    });
-  }, [selectedDate, currentData]);
-
-  useEffect(() => {
-    setDistinctDates(extractDates(currentData));
-  }, [currentData]);
+      setTotalCounts({
+        allInfections: sumValues(allInfections),
+        deceased: sumValues(deceased),
+      });
+    }, 0),
+    []
+  );
 
   const dateSliderChanged = (
     e: React.ChangeEvent<{}>,
@@ -288,12 +281,11 @@ const Map: NextPage<Props> = ({
   ) => {
     e.preventDefault();
     const d = distinctDates[value as number];
-    setSelectedDate(d);
+
+    if (!map) return;
+    updatedLayers(d, map);
   };
-  const hsAction = () => setCurrentData(coronaData.rawInfectionData);
   const sliderProps = {
-    selectedDate,
-    setSelectedDate,
     distinctDates,
     dateSliderChanged,
   };
@@ -301,7 +293,7 @@ const Map: NextPage<Props> = ({
     <div>
       <div ref={(el) => (mapContainer.current = el)} style={mapStyle} />;
       <DateSlider {...sliderProps} />
-      <TotalCounter {...{ ...totalCounts, hsAction }} />
+      <TotalCounter {...{ ...totalCounts }} />
     </div>
   );
 };

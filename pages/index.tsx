@@ -1,15 +1,20 @@
+import {
+  createMuiTheme,
+  ThemeProvider,
+  useMediaQuery,
+} from "@material-ui/core";
+import { blueGrey } from "@material-ui/core/colors";
+import fetch from "isomorphic-unfetch";
+import { GetStaticProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 import * as React from "react";
 import Layout from "../components/Layout";
-import { NextPage } from "next";
-import dynamic from "next/dynamic";
-import fetch from "isomorphic-unfetch";
-import { GetStaticProps } from "next";
+import { Loading } from "../components/Loading";
 import { Confirmed, Corona, Death } from "../interfaces/corona";
-import hcdGeoData from "../sairaus/simplehcdgeo.json";
 import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
+import hcdGeoData from "../sairaus/simplehcdgeo.json";
 import countPositionsGeo from "../sairaus/totalPositions.json";
 import { countAll, countDeaths } from "../utils/coronaCounter";
-import { Loading } from "../components/Loading";
 
 if (typeof window !== "undefined") {
   import("../utils/analytics");
@@ -27,35 +32,64 @@ const IndexPage: NextPage<Props> = ({ hsData }) => {
     ssr: false,
   });
 
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+
+  const muiTheme = React.useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: prefersDarkMode ? "dark" : "light",
+          primary: prefersDarkMode ? blueGrey : blueGrey,
+        },
+        overrides: {
+          MuiSlider: {
+            thumb: {
+              height: "50px",
+              width: "50px",
+              transform: "translate(-20px, -20px);",
+            },
+          },
+          MuiTooltip: {
+            tooltip: {
+              backgroundColor: "#607D8B",
+            },
+          },
+        },
+      }),
+    [prefersDarkMode]
+  );
+
   return (
     <Layout>
-      <DynamicMap
-        hcdGeoData={hcdGeoData}
-        hcdCentroidGeoData={hcdCentroiGeoData}
-        coronaData={{
-          rawInfectionData: hsData,
-          allInfections: allInfections,
-          deaths,
-        }}
-        countPositionsGeo={countPositionsGeo}
-      />
-      <div>
-        <a href="https://github.com/Marantle/KoronaKartta">
-          <img
-            alt="https://github.com/Marantle/KoronaKartta"
-            src="/githubmark.png"
-          />
-        </a>
+      <ThemeProvider theme={muiTheme}>
+        <DynamicMap
+          hcdGeoData={hcdGeoData}
+          hcdCentroidGeoData={hcdCentroiGeoData}
+          coronaData={{
+            rawInfectionData: hsData,
+            allInfections: allInfections,
+            deaths,
+          }}
+          countPositionsGeo={countPositionsGeo}
+        />
+        <div>
+          <a href="https://github.com/Marantle/KoronaKartta">
+            <img
+              alt="https://github.com/Marantle/KoronaKartta"
+              src="/githubmark.png"
+            />
+          </a>
 
-        <style jsx>{`
-          position: absolute;
-          top: 0;
-          right: 0;
-          img {
-            width: 2em;
-          }
-        `}</style>
-      </div>
+          <style jsx>{`
+            position: absolute;
+            top: 0;
+            right: 0;
+            img {
+              width: 2em;
+            }
+          `}</style>
+        </div>
+      </ThemeProvider>
     </Layout>
   );
 };
