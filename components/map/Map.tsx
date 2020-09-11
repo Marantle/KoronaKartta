@@ -17,7 +17,7 @@ import firebase from "../../utils/analytics";
 import { extractDates } from "../../utils/date";
 import { popupHtml } from "./popup";
 import { isDarkMode } from "../../utils/dark";
-import { Slider } from "../Slider";
+import { DateSlider } from "../DateSlider";
 import TotalCounter from "../TotalCounter";
 
 // healthcaredistrict
@@ -145,11 +145,6 @@ const Map: NextPage<Props> = ({
           data: centroidsWithInfectionCounts,
         };
 
-        // const countsSource = {
-        //   type: "geojson",
-        //   data: countPositionsGeo
-        // }
-
         // as any to bypass some weird mapbox typing
         map.addSource(hcdLayerId, hcdSource as any);
         map.addSource(symbolLayerId, centroidSource as any);
@@ -195,24 +190,6 @@ const Map: NextPage<Props> = ({
             "text-halo-width": 1,
           },
         });
-
-        // map.addLayer({
-        //   id: countsLayerId,
-        //   type: "symbol",
-        //   source: countsLayerId,
-        //   layout: {
-        //     "symbol-placement": "point",
-        //     "text-font": ["Arial Unicode MS Bold"],
-        //     "text-field": "{count}",
-        //     "text-size": 28,
-        //     "icon-image": "{type}"
-        //   },
-        //   paint: {
-        //     "text-color": textColor,
-        //     "text-halo-color": textHalo,
-        //     "text-halo-width": 1
-        //   }
-        // });
 
         if (!darkMode) {
           map.addLayer({
@@ -305,10 +282,12 @@ const Map: NextPage<Props> = ({
     setDistinctDates(extractDates(currentData));
   }, [currentData]);
 
-  const dateSliderChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const dateSliderChanged = (
+    e: React.ChangeEvent<{}>,
+    value: number | number[]
+  ) => {
     e.preventDefault();
-    e.nativeEvent.preventDefault();
-    const d = distinctDates[Number(e.currentTarget.value)];
+    const d = distinctDates[value as number];
     setSelectedDate(d);
   };
   const hsAction = () => setCurrentData(coronaData.rawInfectionData);
@@ -321,7 +300,7 @@ const Map: NextPage<Props> = ({
   return (
     <div>
       <div ref={(el) => (mapContainer.current = el)} style={mapStyle} />;
-      <Slider {...sliderProps} />
+      <DateSlider {...sliderProps} />
       <TotalCounter {...{ ...totalCounts, hsAction }} />
     </div>
   );

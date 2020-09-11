@@ -1,5 +1,12 @@
+import {
+  createMuiTheme,
+  makeStyles,
+  Slider,
+  ThemeProvider,
+  Typography,
+} from "@material-ui/core";
 import CSS from "csstype";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, ChangeEvent } from "react";
 import { formatDate } from "../utils/date";
 // position the slider at bottom of the screen
 const sliderContainerStyle: CSS.Properties = {
@@ -14,7 +21,7 @@ interface Props {
   selectedDate: string;
   setSelectedDate: (string: string) => void;
   distinctDates: string[];
-  dateSliderChanged: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  dateSliderChanged: (event: ChangeEvent<{}>, value: number | number[]) => void;
 }
 
 const datesAsDates = (dates: string[]) => {
@@ -37,7 +44,7 @@ const findBestDate = (testDate: Date, days: Date[]) => {
   return days[bestDate];
 };
 
-export const Slider = ({
+export const DateSlider = ({
   selectedDate,
   setSelectedDate,
   distinctDates,
@@ -45,51 +52,81 @@ export const Slider = ({
 }: Props) => {
   const sliderRef = useRef<HTMLInputElement | null>(null);
 
-  // useEffect(() => {
-  //   if (distinctDates.includes(selectedDate)) {
-  //     sliderRef.current.value = String(distinctDates.indexOf(selectedDate));
-  //   } else {
-  //     const bestDate = findBestDate(
-  //       new Date(selectedDate),
-  //       datesAsDates(distinctDates)
-  //     );
-  //     const bestDateString = formatDate(bestDate);
-  //     sliderRef.current.value = String(distinctDates.indexOf(bestDateString));
-  //     setSelectedDate(bestDateString);
-  //   }
-  // }, [distinctDates]);
+  useEffect(() => {
+    if (distinctDates.includes(selectedDate)) {
+      sliderRef.current.value = String(distinctDates.indexOf(selectedDate));
+    } else {
+      const bestDate = findBestDate(
+        new Date(selectedDate),
+        datesAsDates(distinctDates)
+      );
+      const bestDateString = formatDate(bestDate);
+      sliderRef.current.value = String(distinctDates.indexOf(bestDateString));
+      setSelectedDate(bestDateString);
+    }
+  }, [distinctDates]);
 
+  const useStyles = makeStyles({
+    valueLabel: {
+      width: "300px",
+    },
+  });
+
+  function valuetext(value: any) {
+    return `${value}°C`;
+  }
+
+  const marks = distinctDates.map((d, ix) => ({ value: ix, label: d }));
+
+  const muiTheme = createMuiTheme({
+    overrides: {
+      MuiSlider: {
+        thumb: {
+          height: "50px",
+          width: "50px",
+          transform: "translate(-20px, -20px);",
+        },
+      },
+    },
+  });
   return (
     <div style={sliderContainerStyle}>
-      <p>{selectedDate}</p>
-      <input
-        ref={(el) => (sliderRef.current = el)}
-        type="range"
-        id="diseasedate"
-        name="diseasedate"
-        list="mapsettings"
-        min={0}
-        max={distinctDates.length - 1}
-        defaultValue={distinctDates.length - 1}
-        onChange={dateSliderChanged}
-      />
-      <style jsx>{`
-        div {
-          pointer-events: none;
-        }
+      <span>
+        <Typography variant="h4" component="h3">
+          {selectedDate}
+        </Typography>
+      </span>
 
+      <ThemeProvider theme={muiTheme}>
+        <Slider
+          ref={sliderRef}
+          orientation="horizontal"
+          defaultValue={distinctDates.length - 1}
+          min={0}
+          max={distinctDates.length - 1}
+          aria-labelledby="vertical-slider"
+          getAriaValueText={valuetext}
+          onChange={dateSliderChanged}
+        />
+      </ThemeProvider>
+
+      <style jsx>{`
+        .circle {
+          width: 64px;
+          height: 64px;
+        }
         div > input {
           pointer-events: auto;
         }
 
-        p {
+        span {
           font-family: "Roboto", sans-serif;
           font-size: 2em;
           width: 100%;
           display: block;
           text-align: center;
           line-height: 150%;
-          margin-bottom: 5px;
+          margin-bottom: 15px;
         }
 
         @media (prefers-color-scheme: dark) {
