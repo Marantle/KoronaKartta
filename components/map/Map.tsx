@@ -165,24 +165,6 @@ const Map: NextPage<Props> = ({
             "fill-opacity": fillOpacity,
           },
         });
-        map.addLayer({
-          id: symbolLayerId,
-          type: "symbol",
-          source: symbolLayerId,
-          layout: {
-            "symbol-placement": "point",
-            "text-font": ["Arial Unicode MS Bold"],
-            "text-field": "{allInfections}",
-            "text-size": 28,
-            "icon-allow-overlap": true,
-            "text-allow-overlap": true,
-          },
-          paint: {
-            "text-color": textColor,
-            "text-halo-color": textHalo,
-            "text-halo-width": 1,
-          },
-        });
 
         if (!darkMode) {
           map.addLayer({
@@ -198,14 +180,36 @@ const Map: NextPage<Props> = ({
           });
         }
 
+        map.addLayer({
+          id: symbolLayerId,
+          type: "symbol",
+          source: symbolLayerId,
+          layout: {
+            "symbol-placement": "point",
+            "text-font": ["Roboto Regular", "Arial Unicode MS Bold"],
+            "text-field": "{allInfections}",
+            "text-size": 28,
+            "icon-allow-overlap": true,
+            "text-allow-overlap": true,
+          },
+          paint: {
+            "text-color": textColor,
+            "text-halo-color": textHalo,
+            "text-halo-width": 1,
+          },
+        });
+
         const popup = new mapboxgl.Popup({
           closeButton: false,
           closeOnClick: false,
           className: "kartta-popup",
         });
 
-        map.on("click", hcdLayerId, function (e) {
+        map.on("click", function () {
           popup.remove();
+        });
+
+        map.on("click", hcdLayerId, function (e) {
           // merge mapbox feature style with ours to recover their properties
           const { properties } = e.features[0] as typeof e.features[0] &
             Feature;

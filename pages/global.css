@@ -11,12 +11,13 @@ body {
   padding: 0;
 }
 
+div,
 p,
 span,
 h1,
 td,
 th {
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 td,
@@ -24,16 +25,53 @@ th {
   font-size: 1.4em;
 }
 
+.popuptable {
+  background-color: #7986cb;
+}
+.kartta-popup .mapboxgl-popup-content {
+  background-color: #7986cb;
+  border: 1px solid black;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+  border-bottom-color: black;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+  border-top-color: black;
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  border-right-color: black;
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  border-left-color: black;
+}
+
 @media (prefers-color-scheme: dark) {
   .popuptable {
-    color: white;
-    background-color: black;
+    background-color: #303f9f;
   }
   .kartta-popup .mapboxgl-popup-content {
-    background-color: black;
+    background-color: #303f9f;
+    border: 1px solid white;
   }
-  .kartta-popup .mapboxgl-popup-tip {
-    border-top-color: black;
+  .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+  .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+  .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    border-bottom-color: white;
+  }
+  .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+  .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+  .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+    border-top-color: white;
+  }
+  .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-right-color: white;
+  }
+  .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-left-color: white;
   }
 }
 
@@ -47,31 +85,4 @@ th {
 .container {
   display: flex;
   flex-direction: column;
-}
-
-.marker-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  width: 200px;
-}
-
-.marker-text {
-  font-size: 2em;
-  width: 60px;
-  text-align: right;
-}
-
-@media (prefers-color-scheme: dark) {
-  .marker-text {
-    color: white;
-    font-size: 28px;
-    -webkit-text-stroke-width: 0.3px;
-    -webkit-text-stroke-color: black;
-  }
-}
-
-.marker {
-  height: 50px;
-  width: 50px;
 }

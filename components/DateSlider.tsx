@@ -24,11 +24,12 @@ function ValueLabelComponent(props: ValueLabelProps) {
   const { distinctDates } = useDatesContext();
   return (
     <Tooltip
+      arrow
       open={open}
       enterTouchDelay={0}
       placement="top"
       title={
-        <Typography color="inherit" variant="h5" component={"p"}>
+        <Typography variant="h5" component={"p"}>
           {distinctDates[value]}
         </Typography>
       }

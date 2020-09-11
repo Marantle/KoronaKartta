@@ -3,7 +3,7 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from "@material-ui/core";
-import { blueGrey } from "@material-ui/core/colors";
+import { indigo } from "@material-ui/core/colors";
 import fetch from "isomorphic-unfetch";
 import { GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
@@ -39,7 +39,7 @@ const IndexPage: NextPage<Props> = ({ hsData }) => {
       createMuiTheme({
         palette: {
           type: prefersDarkMode ? "dark" : "light",
-          primary: prefersDarkMode ? blueGrey : blueGrey,
+          primary: indigo,
         },
         overrides: {
           MuiSlider: {
@@ -51,7 +51,8 @@ const IndexPage: NextPage<Props> = ({ hsData }) => {
           },
           MuiTooltip: {
             tooltip: {
-              backgroundColor: "#607D8B",
+              backgroundColor: prefersDarkMode ? indigo[500] : indigo[300],
+              color: prefersDarkMode ? "#fff" : "#000",
             },
           },
         },
