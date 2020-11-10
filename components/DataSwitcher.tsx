@@ -33,7 +33,6 @@ export default ({ setCurrentRange: toggleDataType }: Props) => {
   const [checked, setChecked] = useState(false);
 
   const cbChanged = () => {
-    console.log(checked);
     if (!checked) toggleDataType(DataType.DAILY);
     else toggleDataType(DataType.TOTAL);
     setChecked(!checked);
@@ -111,7 +110,7 @@ export default ({ setCurrentRange: toggleDataType }: Props) => {
           transition: 0.4s;
         }
         input:checked + .slider {
-          background-color: #76b82a;
+          background-color: #3B4E7A;
         }
         input:focus + .slider {
           box-shadow: 0 0 1px #2196f3;
