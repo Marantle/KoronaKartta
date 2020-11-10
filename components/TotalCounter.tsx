@@ -22,7 +22,7 @@ const rowStyle: CSS.Properties = {
   textAlign: "right",
 };
 interface Props extends TotalCounts {
-  setCurrentRange: SetRange;
+  setCurrentRange?: SetRange;
 }
 const TotalCounter = (props: Props) => {
   const { setCurrentRange } = props;
@@ -61,7 +61,9 @@ const TotalCounter = (props: Props) => {
           <tr>
             <th colSpan={2} style={headerStyle}>
               <Typography noWrap variant="h5" component="h2">
-                {props.title ?? "KOKO SUOMI"}
+                {props.title === "Sairaanhoitopiiri ei tiedossa"
+                  ? "Tuntematon alue"
+                  : props.title ?? "KOKO SUOMI"}
               </Typography>
             </th>
           </tr>
@@ -102,7 +104,7 @@ const TotalCounter = (props: Props) => {
           </tr>
         </tbody>
       </table>
-      <DataSwitcher {...{ setCurrentRange }} />
+      {setCurrentRange && <DataSwitcher {...{ setCurrentRange }} />}
     </div>
   );
 };
