@@ -2,6 +2,7 @@ import { Typography, useTheme } from "@material-ui/core";
 import CSS from "csstype";
 import React from "react";
 import { isDarkMode } from "../utils/dark";
+import DataSwitcher, { SetRange } from "./DataSwitcher";
 import { TotalCounts } from "./map/Map";
 
 const headerStyle: CSS.Properties = {
@@ -20,8 +21,11 @@ const rowStyle: CSS.Properties = {
   borderBottom: "1px solid #dd",
   textAlign: "right",
 };
-
-const TotalCounter = (props: TotalCounts) => {
+interface Props extends TotalCounts {
+  setCurrentRange: SetRange;
+}
+const TotalCounter = (props: Props) => {
+  const { setCurrentRange } = props;
   const theme = useTheme();
   let tableStyle: CSS.Properties = {
     backgroundColor: theme.palette.primary.light,
@@ -35,6 +39,7 @@ const TotalCounter = (props: TotalCounts) => {
       border: "1px solid white",
     };
   }
+
   const finalTableStyle = {
     ...tableStyle,
     zIndex: 1000,
@@ -97,6 +102,7 @@ const TotalCounter = (props: TotalCounts) => {
           </tr>
         </tbody>
       </table>
+      <DataSwitcher {...{ setCurrentRange }} />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import fetch from "isomorphic-unfetch";
 import { GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import * as React from "react";
+import { DataType } from "../components/DataSwitcher";
 import Layout from "../components/Layout";
 import { Loading } from "../components/Loading";
 import { Confirmed, Corona, Death } from "../interfaces/corona";
@@ -25,8 +26,8 @@ interface Props {
 }
 
 const IndexPage: NextPage<Props> = ({ hsData }) => {
-  const allInfections = countAll(hsData);
-  const deaths = countDeaths(hsData);
+  const allInfections = countAll(hsData, null, DataType.TOTAL);
+  const deaths = countDeaths(hsData, null, DataType.TOTAL);
   const DynamicMap = dynamic(() => import("../components/map/Map"), {
     loading: () => <Loading />,
     ssr: false,
