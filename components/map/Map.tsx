@@ -19,6 +19,7 @@ import { renderPopup } from "./popup";
 import { isDarkMode } from "../../utils/dark";
 import { DateSlider } from "../DateSlider";
 import TotalCounter from "../TotalCounter";
+import { DataType } from "../DataSwitcher";
 
 // healthcaredistrict
 const hcdLayerId = "municipalities";
@@ -81,7 +82,11 @@ const Map: NextPage<Props> = ({
     maxZoom: 6,
   });
 
+  const [currentRange, setCurrentRange] = useState(DataType.TOTAL);
   const distinctDates = extractDates(coronaData.rawInfectionData);
+  const [currentDate, setCurrentDate] = useState(
+    distinctDates[distinctDates.length - 1]
+  );
 
   const [totalCounts, setTotalCounts] = useState<TotalCounts>();
   const [map, setMap] = useState<mapboxgl.Map>();
@@ -246,8 +251,16 @@ const Map: NextPage<Props> = ({
   const updatedLayers = useCallback(
     debounce((selectedDate: string, map: mapboxgl.Map) => {
       const { rawInfectionData } = coronaData;
-      const allInfections = countAll(rawInfectionData, selectedDate);
-      const deceased = countDeaths(rawInfectionData, selectedDate);
+      const allInfections = countAll(
+        rawInfectionData,
+        selectedDate,
+        currentRange
+      );
+      const deceased = countDeaths(
+        rawInfectionData,
+        selectedDate,
+        currentRange
+      );
       // geodata types come from json files automatically so we bypass them for this step
       const hcdLayerData: any = hcdGeoData;
       const symbolLayerData: any = hcdCentroidGeoData;
@@ -276,15 +289,20 @@ const Map: NextPage<Props> = ({
         deceased: sumValues(deceased),
       });
     }, 0),
-    []
+    [currentRange]
   );
 
+  useEffect(() => {
+    dateSliderChanged(null, null);
+  }, [currentRange]);
   const dateSliderChanged = (
     e: React.ChangeEvent<{}>,
     value: number | number[]
   ) => {
-    e.preventDefault();
-    const d = distinctDates[value as number];
+    e && e.preventDefault();
+    const d = value ? distinctDates[value as number] : currentDate;
+
+    setCurrentDate(d);
 
     if (!map) return;
     updatedLayers(d, map);
@@ -293,11 +311,12 @@ const Map: NextPage<Props> = ({
     distinctDates,
     dateSliderChanged,
   };
+
   return (
     <div>
       <div ref={(el) => (mapContainer.current = el)} style={mapStyle} />;
       <DateSlider {...sliderProps} />
-      <TotalCounter {...{ ...totalCounts }} />
+      <TotalCounter {...{ ...totalCounts, setCurrentRange }} />
     </div>
   );
 };
