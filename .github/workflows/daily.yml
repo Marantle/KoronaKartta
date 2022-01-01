@@ -5,7 +5,7 @@ name: Daily publish on Netlify
 jobs:
   publish:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 12
     steps:
     - name: Checkout
       uses: actions/checkout@v1
