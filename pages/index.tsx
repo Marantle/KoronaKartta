@@ -83,11 +83,13 @@ const IndexPage: NextPage<Props> = ({ hsData }) => {
           </a>
 
           <style jsx>{`
-            position: absolute;
-            top: 0;
-            right: 0;
-            img {
-              width: 2em;
+            div {
+              position: absolute;
+              top: 0;
+              right: 0;
+              img {
+                width: 2em;
+              }
             }
           `}</style>
         </div>
