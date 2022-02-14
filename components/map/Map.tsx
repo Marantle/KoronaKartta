@@ -288,7 +288,7 @@ const Map: NextPage<Props> = ({
         allInfections: sumValues(allInfections),
         deceased: sumValues(deceased),
       });
-    }, 0),
+    }, 1000),
     [currentRange]
   );
 
