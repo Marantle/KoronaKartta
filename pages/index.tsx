@@ -4,7 +4,6 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { indigo } from "@material-ui/core/colors";
-import fetch from "isomorphic-unfetch";
 import { GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import * as React from "react";
@@ -16,6 +15,7 @@ import hcdCentroiGeoData from "../sairaus/hcdcentroidgeo.json";
 import hcdGeoData from "../sairaus/simplehcdgeo.json";
 import countPositionsGeo from "../sairaus/totalPositions.json";
 import { countAll, countDeaths } from "../utils/coronaCounter";
+import { promises as fs } from "fs";
 
 if (typeof window !== "undefined") {
   import("../utils/analytics");
@@ -103,12 +103,17 @@ const IndexPage: NextPage<Props> = ({ hsData }) => {
 // direct database queries. See the "Technical details" section.
 export const getStaticProps: GetStaticProps = async () => {
   const isDev = process.env.NODE_ENV === "development";
-  const coronaData = await fetch(
-    "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2"
-  );
 
-  const hsData: Corona = await coronaData.json();
+  const hsData: Corona = JSON.parse(
+    await fs.readFile(process.cwd() + "/data/firstHsData.json", "utf8")
+  ).hsData;
 
+  const extraHsData: Corona = JSON.parse(
+    await fs.readFile(process.cwd() + "/data/secondHsData.json", "utf8")
+  ).hsData;
+
+  hsData.confirmed = hsData.confirmed.concat(extraHsData.confirmed);
+  
   const firstMonth = (d: Confirmed | Death) =>
     d.date < "2020-04-01T14:05:00.000Z";
   if (isDev) {
