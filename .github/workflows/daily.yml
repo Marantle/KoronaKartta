@@ -2,9 +2,7 @@ on:
   push:
     branches:
     - master
-  schedule:
-  - cron: '0 */6 * * *'
-name: Daily publish on Netlify
+name: Publish on Netlify
 jobs:
   publish:
     runs-on: ubuntu-latest
