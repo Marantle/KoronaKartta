@@ -25,8 +25,7 @@ import { DataType } from "../DataSwitcher";
 const hcdLayerId = "municipalities";
 const symbolLayerId = "centroidid";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibWFya29uZW4iLCJhIjoiY2s3cnBqc2xuMGZzbjNmb3UyZzgwMm54bSJ9.6ZyeMVZ3E-_b-r41VkscaQ";
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? "";
 
 let colorScheme = "mapbox://styles/markonen/ck7v4bl3r04vz1ilndc5p8a5w";
 let textColor = "rgb(0, 0, 0)";
